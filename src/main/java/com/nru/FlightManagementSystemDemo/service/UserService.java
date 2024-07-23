@@ -16,6 +16,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    
+    private String type;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -34,4 +36,9 @@ public class UserService {
     public boolean emailExists(String email) {
         return userRepository.findByEmail(email) != null;
     }
+
+	public String getType() {
+		
+		return type;
+	}
 }

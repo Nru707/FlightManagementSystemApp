@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.agile.flight.exception.RouteException;
+import com.FlightManagementSystemDemo.exception.RouteException;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
 import com.nru.FlightManagementSystemDemo.bean.Route;
 import com.nru.FlightManagementSystemDemo.dao.AirportDao;
@@ -121,7 +121,7 @@ public class RouteFlightController {
 	        String fromAirport = airportDao.findAirportCodeByLocation(fromCity);
 	        String toAirport = airportDao.findAirportCodeByLocation(toCity);
 	        if (fromAirport.equalsIgnoreCase(toAirport))
-	            throw new RouteException();
+	            throw new RouteException(toAirport);
 	        Route route = routeDao.findRouteBySourceAndDestination(fromAirport, toAirport);
 	       
 	        List<Flight> flightList = flightDao.findFlightsByRouteId(route.getRouteId());

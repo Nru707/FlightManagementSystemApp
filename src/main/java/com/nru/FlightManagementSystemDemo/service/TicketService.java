@@ -1,107 +1,71 @@
 package com.nru.FlightManagementSystemDemo.service;
 
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.nru.FlightManagementSystemDemo.bean.Flight;
+import com.nru.FlightManagementSystemDemo.bean.Passenger;
 import com.nru.FlightManagementSystemDemo.dao.FlightDao;
-import com.nru.FlightManagementSystemDemo.dao.PassengerDao;
-import com.nru.FlightManagementSystemDemo.dao.TicketDao;
 
 @Service
 public class TicketService {
     @Autowired
-    private PassengerDao passengerDao;
-
-    @Autowired
-    private TicketDao ticketDao;
-
-    @Autowired
     private FlightDao flightDao;
-
-    // New method to calculate final ticket price
-    public Double calculateFinalTicketPrice(Integer birthYear, Double basePrice, Integer totalSeats,
-            Integer bookedSeats) {
-        // Calculate age
-        Integer age = ageCalculation(birthYear);
-
-        // Check if tickets are available
-        int availableSeats = capacityCalculation(totalSeats, bookedSeats);
-        if (availableSeats <= 0) {
-            throw new IllegalStateException("No tickets available");
-        }
-
-        // Apply discount based on age
-        Double discountedPrice = discount(basePrice, age);
-
-        return discountedPrice;
+    
+    
+    public Double totalBillCalculation(List<Passenger> passengerList) {
+    	double totalValue=0.0;
+    	for(Passenger passenger:passengerList) {
+    		totalValue=totalValue+passenger.getFare();
+    	}
+    	return totalValue;
     }
 
-    // discount() - No changes
-    public Double discount(Double totalAmount, int age) {
-        final double CHILD_DISCOUNT = 0.3; // 30% discount
-        final double YOUTH_DISCOUNT = 0.2; // 20% discount
-        final double ELDERLY_DISCOUNT = 0.25; // 25% discount
-        final double NO_DISCOUNT = 0.1; // 10% discount for others
 
-        if (age < 12) {
-            return totalAmount - (totalAmount * CHILD_DISCOUNT);
-        } else if (age >= 12 && age <= 24) {
-            return totalAmount - (totalAmount * YOUTH_DISCOUNT);
-        } else if (age >= 65) {
-            return totalAmount - (totalAmount * ELDERLY_DISCOUNT);
-        } else {
-            return totalAmount - (totalAmount * NO_DISCOUNT);
-        }
-    }
+	public Double discountedFareCalculation(Passenger passenger) {
+		 		int age = ageCalculation(passenger.getPassengerDOB());
+		 		Double finalFare=0.0;
 
-    // ageCalculation() - No changes
-    public Integer ageCalculation(Integer year) {
-        return 2024 - year; // Consider updating the current year dynamically
-    }
+		        if (age < 14) {
+		            finalFare= passenger.getFare()/2;
+		        } else if (age >60) {
+		        	finalFare= passenger.getFare()-(passenger.getFare()*0.30);
+		        } else {
+		        	finalFare= passenger.getFare();
+		        }
+		        return finalFare;
+		    }
 
-    // capacityCalculation() - No changes
-    public int capacityCalculation(Integer totalSeats, Integer bookedSeats) {
-        return totalSeats - bookedSeats;
-    }
 
-    /*public boolean cancelTicket(Long ticketNumber) {
-        try {
-            passengerDao.deletePassengerByTicketNumber(ticketNumber);
-            ticketDao.deleteTicketByTicketNumber(ticketNumber);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-*/
-    public Integer getTotalSeats(Long flightNumber) {
-        System.out.println("flight number from get toatal setas: " + flightNumber);
-        Flight flight = flightDao.findFlightByFlightNumber(flightNumber);
-        System.out.println("flight details from get toatal setas: " + flight);
-        return flight.getSeatCapacity();
-    }
 
-    public Integer getBookedSeats(Long flightNumber) {
-        return flightDao.findFlightByFlightNumber(flightNumber).getSeatBooked();
-    }
 
-    public TicketService() {
-        super();
-    }
+	private int ageCalculation(String dob) {
+	   LocalDate today= LocalDate.now();
+	   String dataArr[]=dob.split("-");
+	   LocalDate birthday= LocalDate.of(Integer.parseInt(dataArr[0]),Integer.parseInt(dataArr[1]),Integer.parseInt(dataArr[2]));
+	   Period period= Period.between(birthday, today);
+	   int age=period.getYears();
+	   return age;
+	}
 
-    public TicketService(PassengerDao passengerDao, TicketDao ticketDao, FlightDao flightDao) {
-        this.passengerDao = passengerDao;
-        this.ticketDao = ticketDao;
-        this.flightDao = flightDao;
-    }
 
-    public void updateBookedSeats(Long flightNumber, Long totalPasssenger) {
-        System.out.println("Flight Number from updateBookedSeats: " + flightNumber);
-        Flight flight = flightDao.findFlightByFlightNumber(flightNumber);
-        flight.setSeatBooked((int) (flight.getSeatBooked() + totalPasssenger));
-        flightDao.save(flight);
-    }
-
+	public boolean capacityCalculation(int numberOfSeatBooking, Long flightNumber) {
+		Flight flight=flightDao.findFlightById(flightNumber);
+		int bookedSeat= flight.getSeatBooked()+numberOfSeatBooking;
+		int balance=flight.getSeatCapacity()-bookedSeat;
+		if(balance<0) {
+			return false;
+		}
+		else {
+			flight.setSeatBooked(bookedSeat);
+			flightDao.save(flight);
+		}
+		return true;
+	}
+	
+	
 	
 }

@@ -19,29 +19,20 @@
                     <form:hidden path="ticketNumber" />
                     <form:hidden path="flightNumber" />
                     <form:hidden path="carrierName" />
-                    <!-- <input type="hidden" name="fromLocation" value="${route.sourceAirportCode}" />
+                    <input type="hidden" name="fromLocation" value="${route.sourceAirportCode}" />
                     <input type="hidden" name="toLocation" value="${route.destinationAirportCode}" />
-                    <input type="hidden" name="routeId" value="${route.routeId}" />
-                    <input type="hidden" name="totalAmount" value="${route.fare}" /> -->
+                    <input type="hidden" name="fare" value="${route.fare}" />
                     <h3>Flight Booking Details</h3>
                     <table>
                         <tr>
-                            <td><label class="required">Ticket Number : </label>
-                                <form:input path="ticketNumber" disabled="true" />
-                            </td>
-                            <td><label class="required">Flight Number : </label>
-                                <form:input path="flightNumber" disabled="true" />
-                            </td>
-                            <td><label class="required">Airlines Name : </label>
-                                <form:input path="carrierName" disabled="true" />
-                            </td>
+                            <td><label class="required">Ticket Number : </label><form:input path="ticketNumber" disabled="true" /></td>
+                            <td><label class="required">Flight Number : </label><form:input path="flightNumber" disabled="true" /></td>
+                            <td><label class="required">Airlines Name : </label><form:input path="carrierName" disabled="true" /></td>
                         </tr>
                         <tr>
-                            <td><label class="required">From : </label><input type="text"
-                                    value="${route.sourceAirportCode}" disabled="true"/></td>
-                            <td><label class="required" >To : </label><input type="text"
-                                    value="${route.destinationAirportCode}" disabled="true" /></td>
-                            <td><label class="required" >Fare : </label><input type="text" value="${route.fare}" disabled="true"/></td>
+                            <td><label class="required">From : </label><input type="text"  value="${route.sourceAirportCode}" disabled="true" /></td>
+                            <td><label class="required" >To : </label><input type="text"  value="${route.destinationAirportCode}" disabled="true"  /></td>
+                            <td><label class="required" >Fare : </label><input type="text"  value="${route.fare}"  disabled="true"/></td>
                         </tr>
                     </table>
 
@@ -49,33 +40,27 @@
                     <table>
                         <tr>
                             <td>Name : <input type="text" name="name1" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob1" pattern="\d{1,2}-\d{1,2}-\d{4}"
-                                    placeholder="DD-MM-YYYY" required></td>
+                            <td>Date Of Birth : <input type="date" name="dob1" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder="25-10-2024" required></td>
                         </tr>
                         <tr>
                             <td>Name : <input type="text" name="name2" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob2" pattern="\d{1,2}-\d{1,2}-\d{4}"
-                                    placeholder="DD-MM-YYYY"></td>
+                            <td>Date Of Birth : <input type="date" name="dob2" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder=25-10-2024" ></td>
                         </tr>
                         <tr>
                             <td>Name : <input type="text" name="name3" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob3" pattern="\d{1,2}-\d{1,2}-\d{4}"
-                                    placeholder="DD-MM-YYYY"></td>
+                            <td>Date Of Birth : <input type="date" name="dob3" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder=25-10-2024" ></td>
                         </tr>
                         <tr>
                             <td>Name : <input type="text" name="name4" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob4" pattern="\d{1,2}-\d{1,2}-\d{4}"
-                                    placeholder="DD-MM-YYYY"></td>
+                            <td>Date Of Birth : <input type="date" name="dob4" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder=25-10-2024" ></td>
                         </tr>
                         <tr>
                             <td>Name : <input type="text" name="name5" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob5" pattern="\d{1,2}-\d{1,2}-\d{4}"
-                                    placeholder="DD-MM-YYYY"></td>
+                            <td>Date Of Birth : <input type="date" name="dob5" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder=25-10-2024" ></td>
                         </tr>
                         <tr>
                             <td>Name : <input type="text" name="name6" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob6" pattern="\d{1,2}-\d{1,2}-\d{4}"
-                                    placeholder="DD-MM-YYYY"></td>
+                            <td>Date Of Birth : <input type="date" name="dob6" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder=25-10-2024" ></td>
                         </tr>
                     </table>
 

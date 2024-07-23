@@ -12,14 +12,13 @@
   <body>
   <%@include file="Base2.jsp" %>
                     <h2 class="mb-4 text-center">Ticket Confirmation</h2>
-                    <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Booking Details</h5>
                             <p class="card-text"><strong>Ticket Number:</strong> ${ticketRecord.ticketNumber}</p>
                             <p class="card-text"><strong>Carrier Name:</strong> ${ticketRecord.carrierName}</p>
                             <p class="card-text"><strong>Flight Number:</strong> ${ticketRecord.flightNumber}</p>
-                            <p class="card-text"><strong>Route ID:</strong> ${ticketRecord.routeId}</p>
-                            <p class="card-text"><strong>Total Amount:</strong> ${ticketRecord.totalAmount}</p>
+                            <p class="card-text"><strong>From:</strong> ${fromCity}</p>
+                            <p class="card-text"><strong>To:</strong> ${toCity}</p>
 
                             <h5 class="card-title">Passenger Details</h5>
                             <div class="table-responsive">
@@ -27,28 +26,31 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>Passenger Name</th>
-                                            <th>Age</th>
+                                            <th>Date Of Birth</th>
+                                            <th>fare</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach var="passenger" items="${passengerList}">
                                             <tr>
                                                 <td>${passenger.passengerName}</td>
-                                                <td>${passenger.passengerAge}</td>
+                                                <td>${passenger.passengerDOB}</td>
+                                                <td>${passenger.fare}</td>
+                                                 
                                             </tr>
                                         </c:forEach>
+                                        <tr>
+                                        <td colspan="2" align="right"><strong>Total Amount:</strong></td>
+                                        <td> ${ticket.totalAmount}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
-
-                            <!-- Cancel Ticket Form 
-                            <form:form action="/cancelTicket/${ticketRecord.ticketNumber}" method="post"
+                            <form:form action=" " method="post"
                                 modelAttribute="ticketRecord">
                                 <input type="hidden" name="ticketNumber" value="${ticketRecord.ticketNumber}" />
                                 <button type="submit" class="btn btn-danger">Cancel Ticket</button>
-                            </form:form>-->
+                            </form:form>
                         </div>
-                    </div>
-                    <a href="/index" class="btn btn-primary mt-4">Back to Home</a>
 </body>
 </html>

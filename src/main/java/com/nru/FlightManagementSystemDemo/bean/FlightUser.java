@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class FlightUser {
+public class FlightUser  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,9 +17,11 @@ public class FlightUser {
 
     // Constructors
     public FlightUser() {
+    	super();
     }
 
     public FlightUser(String username, String email, String password) {
+    	super();
         this.username = username;
         this.email = email;
         this.password = password;
@@ -65,4 +67,9 @@ public class FlightUser {
     public void setUserType(String userType) {
         this.userType = userType;
     }
+
+	public String getType() {
+		// TODO Auto-generated method stub
+		return userType;
+	}
 }

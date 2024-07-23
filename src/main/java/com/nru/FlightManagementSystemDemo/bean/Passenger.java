@@ -1,37 +1,28 @@
 package com.nru.FlightManagementSystemDemo.bean;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+@Entity
 public class Passenger {
-	
+	    @EmbeddedId
 	    private TicketPassengerEmbed embeddedId;
-	    
-	    private int passengerDOB;
+	    private String passengerDOB;
 	    private Double fare;
 	    private String passengerName; 
-	    private String dob;
-	    
-	    @ManyToOne
-	    @JoinColumn(name = "ticket_id", nullable = false)
-	    private Ticket ticket;
-
 	 
 		public Passenger() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 
-		public Passenger(TicketPassengerEmbed embeddedId, int passengerDOB, Double fare, String passengerName,
-				String dob, Ticket ticket) {
+		public Passenger(TicketPassengerEmbed embeddedId , String passengerName, String passengerDOB, Double fare) {
 			super();
 			this.embeddedId = embeddedId;
 			this.passengerDOB = passengerDOB;
 			this.fare = fare;
 			this.passengerName = passengerName;
-			this.dob = dob;
-			this.ticket = ticket;
 		}
+
 		public String getPassengerName() {
 			return passengerName;
 		}
@@ -44,10 +35,10 @@ public class Passenger {
 		public void setEmbeddedId(TicketPassengerEmbed embeddedId) {
 			this.embeddedId = embeddedId;
 		}
-		public int getPassengerDOB() {
+		public String getPassengerDOB() {
 			return passengerDOB;
 		}
-		public void setPassengerDOB(int passengerDOB) {
+		public void setPassengerDOB(String passengerDOB) {
 			this.passengerDOB = passengerDOB;
 		}
 		public Double getFare() {
@@ -56,19 +47,6 @@ public class Passenger {
 		public void setFare(Double fare) {
 			this.fare = fare;
 		}
-		   public String getDob() {
-				return dob;
-			}
-			public void setDob(String dob) {
-				this.dob = dob;
-			}
-			public Ticket getTicket() {
-		        return ticket;
-		    }
-
-		    public void setTicket(Ticket ticket) {
-		        this.ticket = ticket;
-		    }
 		
 			
 		}

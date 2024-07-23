@@ -25,6 +25,9 @@ public class TicketDaoImpl implements TicketDao {
 		   Long val = repository.findLastTicketNumber();
 	        if (val == null)
 	            val = 1000001L;
+	        else {
+	        	val=val+1L;
+	        }
 	        return val;
 	    }
 

@@ -28,7 +28,8 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-	</properties>
+    <spring-security.version>5.2.5.RELEASE</spring-security.version>
+</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -77,17 +78,16 @@
     <artifactId>spring-security-core</artifactId>
     <version>5.4.6</version><!--$NO-MVN-MAN-VER$-->
 </dependency>
+<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-oauth2-client</artifactId>
+    <version>5.0.3.RELEASE</version>
+</dependency>
   <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
         </dependency>
-
-		<dependency>
-    	<groupId>com.agile</groupId>
-    	<artifactId>flight</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
     
 	</dependencies>
 

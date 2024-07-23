@@ -7,20 +7,18 @@ import javax.persistence.Id;
 public class Ticket {
     @Id
     private Long ticketNumber;
-    private Long routeId;
-    private Long flightNumber;
     private String carrierName;
-    private Double totalAmount;
+    private Long flightNumber;
+   private Double totalAmount;
     
     
     public Ticket() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Ticket(Long ticketNumber, Long routeId, Long flightNumber, String carrierName, Double totalAmount) {
+	public Ticket(Long ticketNumber,  Long flightNumber, String carrierName, Double totalAmount) {
 		super();
 		this.ticketNumber = ticketNumber;
-		this.routeId = routeId;
 		this.flightNumber = flightNumber;
 		this.carrierName = carrierName;
 		this.totalAmount = totalAmount;
@@ -33,12 +31,7 @@ public class Ticket {
 	public void setTicketNumber(Long ticketNumber) {
 		this.ticketNumber = ticketNumber;
 	}
-	public Long getRouteId() {
-		return routeId;
-	}
-	public void setRouteId(Long routeId) {
-		this.routeId = routeId;
-	}
+	
 	public Long getFlightNumber() {
 		return flightNumber;
 	}
@@ -56,6 +49,10 @@ public class Ticket {
 	}
 	public void setTotalAmount(Double totalAmount) {
 		this.totalAmount = totalAmount;
+	}
+	
+	public String toString() {
+		return "Ticket [ ticketNumber=" + ticketNumber  +",flightNumber =" +flightNumber+", carrierName="+ carrierName + ", totalAmount=" + totalAmount + "] ";
 	}
 
 }

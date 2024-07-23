@@ -27,7 +27,6 @@
   <tbody>
   <c:forEach items="${flightList}" var="flight">
     <tr>
-    <!--  <td><c:out value="${airport.airportCode}" /></td>-->
     <td><c:out value="${flight.flightNumber}" /></td>
     <td><c:out value="${flight.carrierName}" /></td>
     <td><c:out value="${flight.routeId}" /></td>

@@ -1,5 +1,7 @@
 package com.nru.FlightManagementSystemDemo.dao;
 
+
+
 import java.util.List;
 
 import com.nru.FlightManagementSystemDemo.bean.Passenger;

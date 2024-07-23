@@ -46,25 +46,6 @@ public class AirportManagementController {
 	}
 	
 	
-	
-	/*@GetMapping("/airport-select")
-	public ModelAndView showAirportSelectPage() {
-	List<String> codeList = airportDao.findAllAirportCodes();
-	ModelAndView mv=new ModelAndView("airportSelectPage");
-	mv.addObject("codeList",codeList);
-	return mv;
-	}
-	
-	*/
-	
-	/*@PostMapping("/airport-select")
-    public ModelAndView showSingleAirportPage1(@RequestParam("airport-code") String id) {
-	 Airport airport=airportDao.findAirportById(id);
-	 ModelAndView mv=new ModelAndView("airportShowPage");
-     mv.addObject("airport",airport);
-	 return mv;
-	}*/
-	
 	@GetMapping("/airport/{id}")
     public ModelAndView showSingleAirportPage(@PathVariable("id") String id) {
 	 Airport airport=airportDao.findAirportById(id);
@@ -84,18 +65,5 @@ public class AirportManagementController {
 		return mv;
 	}
 
-	//@GetMapping("/airport/{id}")
-	//public ModelAndView showSearchAirportPage(@PathVariable("id") String id) {
-    //A/irport airport = airportDao.findAirportById(id.toUpperCase());
-	//ModelAndView mv = new ModelAndView("airportShowPage");
-	//mv.addObject("airport", airport);
-	//r/eturn mv;
-	//}
-
-	
-
-
-
-	
 
 }

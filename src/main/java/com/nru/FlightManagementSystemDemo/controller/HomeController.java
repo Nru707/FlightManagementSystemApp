@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-
 import com.nru.FlightManagementSystemDemo.bean.FlightUser;
 import com.nru.FlightManagementSystemDemo.service.UserService;
 
@@ -26,6 +25,11 @@ public class HomeController {
 	public String Home() {
 		return"Home";
 	}
+	
+	 @GetMapping("/customerPage")
+	    public String showCustomerPage() {
+	        return "CustomerPage";
+	    }
 	
 	 @GetMapping("/newUser")
 	    public String showSignupPage(Model model) {
@@ -62,7 +66,6 @@ public class HomeController {
             return "Login";
         }
     }
-	
 	
 }
 
