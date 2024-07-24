@@ -59,6 +59,7 @@
         .signup-box input[type="text"],
         .signup-box input[type="password"],
         .signup-box input[type="email"],
+        .login-box input[type="username"],
          .login-box input[type="email"],
         .login-box input[type="password"],
         .signup-box select {

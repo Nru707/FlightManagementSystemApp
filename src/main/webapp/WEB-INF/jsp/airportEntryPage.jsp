@@ -16,7 +16,7 @@
    <div style="text-align: center;">
    <br><br>
    <h3 >
-   <form:form action="/airport" method="post" modelAttribute="airportRecord">
+   <form:form action="/admin/airport" method="post" modelAttribute="airportRecord">
    ENTER AIRPORT CITY: <form:input  path="airportLocation" required="required"/>
    <br><br>
    ENTER AIRPORT CODE: <form:input  path="airportCode" required="required"/>

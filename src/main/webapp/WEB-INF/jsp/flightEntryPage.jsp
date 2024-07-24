@@ -13,7 +13,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8 form-container">
                             <h3 class="text-center form-title">Flight Form</h3>
-                            <form:form action="/flight" method="post" modelAttribute="flightRecord">
+                            <form:form action="/admin/flight" method="post" modelAttribute="flightRecord">
                                 <div class="form-group">
                                     <label for="flightNumber">Enter Flight ID:</label>
                                     <form:input path="flightNumber" class="form-control" id="flightNumber" />

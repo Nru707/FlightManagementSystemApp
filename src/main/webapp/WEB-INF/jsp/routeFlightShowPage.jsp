@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- <%@include file="Base2.jsp" %>
+ <%@include file="Base3.jsp" %>
  <br>
                 <div class="row justify-content-center">
                     <div class="col-md-8 details-container text-center">
@@ -36,6 +36,8 @@
                                         <td>${flight.routeId}</td>
                                         <td>${flight.departure}</td>
                                         <td>${flight.arrival}</td>
+                                        <c:set var="seatAvailable" scope="session"
+                                            value="${flight.seatCapacity-flight.seatBooked}" />
                                         <td>${seatAvailable}</td>
                                         <td>${fare}</td>
                                       <td><a href="/ticket/${flight.flightNumber}" >Book Ticket</a></td>
@@ -43,7 +45,7 @@
                                 </c:forEach>
                             </tbody>
                         </table>
-                        <a href="/airports" class="home-link btn btn-primary">Back to Home</a>
+                        <a href="/userindex" class="home-link btn btn-primary">Back to Home</a>
                     </div>
                 </div>
 </body>

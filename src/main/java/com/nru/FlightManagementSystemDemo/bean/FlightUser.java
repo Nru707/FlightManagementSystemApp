@@ -13,7 +13,7 @@ public class FlightUser  {
     private String username;
     private String email;
     private String password;
-    private String userType;
+    //private String userType;
 
     // Constructors
     public FlightUser() {
@@ -60,7 +60,7 @@ public class FlightUser  {
         this.password = password;
     }
     
-    public String getUserType() {
+  /*  public String getUserType() {
         return userType;
     }
 
@@ -71,5 +71,5 @@ public class FlightUser  {
 	public String getType() {
 		// TODO Auto-generated method stub
 		return userType;
-	}
+	}*/
 }

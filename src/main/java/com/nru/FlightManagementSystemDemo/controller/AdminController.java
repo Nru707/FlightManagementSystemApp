@@ -1,29 +1,31 @@
 package com.nru.FlightManagementSystemDemo.controller;
 
-/*import java.util.List;
+import java.util.List;
 
-//Remove the unused import statement
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.nru.FlightManagementSystemDemo.bean.Airport;
 import com.nru.FlightManagementSystemDemo.dao.AirportDao;
 
-
-
-@RestController
-//@RequestMapping("admin")
-public class AirportManagementController {
-
+@Controller
+@RequestMapping("admin")
+public class AdminController {
+	
 	@Autowired
 	private AirportDao airportDao;
-
+	
+	@GetMapping("/")
+	public String Home() {
+		return"Home";
+	}
+	
 	@GetMapping("/index")
 	public ModelAndView showIndexPage() {
 		return new ModelAndView("index");
@@ -36,7 +38,7 @@ public class AirportManagementController {
 		mv.addObject("airportRecord", airport);
 		return mv;
 	}
-
+	
 	@PostMapping("/airport")
 	public ModelAndView saveAirport(@ModelAttribute("airportRecord") Airport airport) {
 		String str = airport.getAirportCode().toUpperCase();
@@ -46,7 +48,6 @@ public class AirportManagementController {
 		airportDao.addAirport(airport);
 		return new ModelAndView("index");
 	}
-	
 	
 	@GetMapping("/airport/{id}")
     public ModelAndView showSingleAirportPage(@PathVariable("id") String id) {
@@ -66,6 +67,4 @@ public class AirportManagementController {
 		mv.addObject("airportList", airportList);
 		return mv;
 	}
-
-
-}*/
+}

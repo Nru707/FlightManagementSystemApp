@@ -15,7 +15,7 @@
    <div style="text-align: center;">
    <br><br>
    <h3 >
-   <form:form action="/route" method="post" modelAttribute="routeRecord">
+   <form:form action="/admin/route" method="post" modelAttribute="routeRecord">
    <form:hidden path="routeId"/>
    ENTER SOURCE CITY: <form:input  path="sourceAirportCode" required="required"/>
    <br><br>

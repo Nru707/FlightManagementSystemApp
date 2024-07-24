@@ -26,20 +26,20 @@
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto text-uppercase">
       <li class="nav-item">
-        <a class="nav-link nav-item active" href="/index">HOME</a>
+        <a class="nav-link nav-item active" href="/admin/index">HOME</a>
       </li>
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           AIRPORT
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/airport">ADD AIRPORT</a>
+          <a class="dropdown-item" href="/admin/airport">ADD AIRPORT</a>
           
           <!--  <div class="dropdown-divider border border-dark"></div>
           <a class="dropdown-item" href="/airport-select">AIRPORT SEARCH</a>-->
           
           <div class="dropdown-divider border border-dark"></div>
-          <a class="dropdown-item" href="/airports">AIRPORT REPORT</a>
+          <a class="dropdown-item" href="/admin/airports">AIRPORT REPORT</a>
         </div>
       </li>
       
@@ -49,9 +49,9 @@
           ROUTE
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/routeEntryPage">SELECT ROUTE</a>
+          <a class="dropdown-item" href="/admin/routeEntryPage">SELECT ROUTE</a>
           <div class="dropdown-divider border border-dark"></div>
-          <a class="dropdown-item" href="/routes">ALL ROUTE</a>
+          <a class="dropdown-item" href="/admin/routes">ALL ROUTE</a>
         </div>
       </li>
       
@@ -60,27 +60,27 @@
           FLIGHT
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/flight">FLIGHT ENTRY</a>
+          <a class="dropdown-item" href="/admin/flight">FLIGHT ENTRY</a>
           <div class="dropdown-divider border border-dark"></div>
-          <a class="dropdown-item" href="/flights">FLIGHT REPORTS</a>
+          <a class="dropdown-item" href="/admin/flights">FLIGHT REPORTS</a>
         </div>
       </li>
       
-       <li class="nav-item dropdown">
+       <!--  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           FLIGHT BOOKING
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/flight-search">FLIGHT SEARCH</a>
         </div>
-      </li>
+      </li> -->
       
     </ul>
   </div>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-uppercase">
       <li class="nav-item active font-weight-bold">
-        <a class="nav-link" href="${pageContext.request.contextPath}/Login">Logout</a>
+        <a class="nav-link" href="/dologout">Logout</a>
       </li>
     </ul>
   </div>

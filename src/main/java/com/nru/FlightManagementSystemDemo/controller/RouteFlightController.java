@@ -6,15 +6,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.FlightManagementSystemDemo.exception.RouteException;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
 import com.nru.FlightManagementSystemDemo.bean.Route;
 import com.nru.FlightManagementSystemDemo.dao.AirportDao;
@@ -26,6 +24,7 @@ import com.nru.FlightManagementSystemDemo.service.RouteService;
 
 @ControllerAdvice
 @RestController
+@RequestMapping("admin")
 public class RouteFlightController {
 	
 	@Autowired
@@ -42,6 +41,8 @@ public class RouteFlightController {
 	
 	@Autowired
 	private FlightDao flightDao;
+	
+	
 	
 	
 	@GetMapping("/routeEntryPage")
@@ -95,7 +96,7 @@ public class RouteFlightController {
 	        Flight flight2 = flightService.createReturnFlight(flight1, dtime, atime);
 	        flightDao.save(flight1);
 	        flightDao.save(flight2);
-	        return new ModelAndView("redirect:/index");
+	        return new ModelAndView("redirect:/admin/index");
 	    }
 	   
 	   @GetMapping("/flights")
@@ -106,7 +107,7 @@ public class RouteFlightController {
 	        return mv;
 	    }
 	   
-	    @GetMapping("/flight-search")
+	   /*  @GetMapping("/flight-search")
 	    public ModelAndView showRouteSelectPage() {
 	        List<String> airportList = airportDao.findAllAirportLocations();
 	        ModelAndView mv = new ModelAndView("routeSelectPage");
@@ -114,7 +115,7 @@ public class RouteFlightController {
 	        return mv;
 	    }
 	    
-	    @PostMapping("/flight-search")
+	  @PostMapping("/flight-search")
 	    public ModelAndView showRouteFlightsPage(@RequestParam("fromCity") String fromCity, @RequestParam("toCity") String toCity) {
 	    	 fromCity = fromCity.toUpperCase();
 	    	 toCity = toCity.toUpperCase();
@@ -142,7 +143,7 @@ public class RouteFlightController {
 	        mv.addObject("errorMessage", message);
 	        return mv;
 
-	    }
+	    }*/
 
 
 }

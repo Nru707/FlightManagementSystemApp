@@ -10,7 +10,7 @@
 </head>
 <body>
   <body>
-  <%@include file="Base2.jsp" %>
+  <%@include file="Base3.jsp" %>
                     <h2 class="mb-4 text-center">Ticket Confirmation</h2>
                         <div class="card-body">
                             <h5 class="card-title">Booking Details</h5>

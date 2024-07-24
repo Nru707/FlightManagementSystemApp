@@ -26,7 +26,7 @@
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto text-uppercase">
       <li class="nav-item">
-        <a class="nav-link nav-item active" href="/index">HOME</a>
+        <a class="nav-link nav-item active" href="/userindex">HOME</a>
       </li>
       
        <li class="nav-item dropdown">

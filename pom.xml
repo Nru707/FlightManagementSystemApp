@@ -34,6 +34,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,30 +74,40 @@
         <version>9.0.65</version>
     </dependency>
     
-    <dependency>
+   <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+<dependency>
     <groupId>org.springframework.security</groupId>
     <artifactId>spring-security-core</artifactId>
-    <version>5.4.6</version><!--$NO-MVN-MAN-VER$-->
+    <version>6.3.1</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client -->
 <dependency>
     <groupId>org.springframework.security</groupId>
     <artifactId>spring-security-oauth2-client</artifactId>
-    
+    <version>6.3.1</version>
 </dependency>
-  <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-           
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
-<!--<dependency>
+<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+<dependency>
+    <groupId>javax.validation</groupId>
+    <artifactId>validation-api</artifactId>
+    <version>2.0.1.Final</version>
+</dependency>
+<dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-security</artifactId>
-   
+    <version>3.3.0</version>
+ </dependency>
+ 
+ <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.32</version>
+    <scope>provided</scope>
 </dependency>
--->
-    
-	</dependencies>
+
+</dependencies>
 
 	<build>
 		<plugins>

@@ -21,6 +21,7 @@
         <th>Route Id</th>
          <th>Departure</th>
          <th>Arrival</th>
+         <th>SEATBOOKED</th>
          <th>Seat Available</th>
     </tr>
   </thead>
@@ -32,6 +33,7 @@
     <td><c:out value="${flight.routeId}" /></td>
     <td><c:out value="${flight.departure}" /></td>
     <td><c:out value="${flight.arrival}" /></td>
+    <td><c:out value="${flight.seatBooked}" /></td>
     <c:set var="seatAvailable" scope="session" value="${flight.seatCapacity-flight.seatBooked}" />
     <td><c:out value="${seatAvailable}" /></td>
     </tr>
