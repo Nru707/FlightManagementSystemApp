@@ -88,7 +88,7 @@ public class TicketController {
                 passengerDao.save(passenger);
             }
         } else {
-            /*throw new SeatNotFoundException(); */
+            /*throw new SeatNotFoundException();*/
         }
         Double totalAmount = ticketService.totalBillCalculation(passengerList);
         ticket.setTotalAmount(totalAmount);

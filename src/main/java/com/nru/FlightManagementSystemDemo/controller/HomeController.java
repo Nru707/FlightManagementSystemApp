@@ -25,10 +25,10 @@ public class HomeController {
 	public String Home() {
 		return"Home";
 	}
-	@GetMapping("/login")
+	/*@GetMapping("/Login")
 	public ModelAndView showIndexPage() {
-		return new ModelAndView("adminLoginPage");
-	}
+		return new ModelAndView("Login");
+	}*/
 	
 	@GetMapping("/userindex")
 	public ModelAndView showUserIndexPage() {

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.FlightManagementSystemDemo.exception.FlightException;
+import com.FlightManagementSystemDemo.exception.RouteException;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
 import com.nru.FlightManagementSystemDemo.bean.Route;
 import com.nru.FlightManagementSystemDemo.dao.AirportDao;
@@ -59,6 +63,8 @@ public class RouteFlightController {
 	public ModelAndView saveRoutes(@ModelAttribute("routeRecord") Route route1) {
 	String source = route1.getSourceAirportCode().toUpperCase();
 	String destination = route1.getDestinationAirportCode().toUpperCase();
+	 if (source.equalsIgnoreCase(destination))
+         throw new RouteException("From-City & To-City cannot be the same......");
 	route1.setSourceAirportCode(source);
 	route1.setDestinationAirportCode(destination);
 	String sourceCode = airportDao.findAirportCodeByLocation(route1.getSourceAirportCode());
@@ -107,6 +113,14 @@ public class RouteFlightController {
 	        return mv;
 	    }
 	   
+	   @ExceptionHandler(value = FlightException.class)
+	    public ModelAndView handlingFlightException(FlightException exception) {
+	        String message = "From-City & To-City cannot be the same......";
+	        ModelAndView mv = new ModelAndView("flightErrorPage");
+	        mv.addObject("flightError", message);
+	        return mv;
+	    }
+	   
 	   /*  @GetMapping("/flight-search")
 	    public ModelAndView showRouteSelectPage() {
 	        List<String> airportList = airportDao.findAllAirportLocations();
@@ -134,7 +148,7 @@ public class RouteFlightController {
 	        mv.addObject("fare", route.getFare());
 	        return mv;
 
-	    }
+	    }*/
 	    
 	    @ExceptionHandler(value = RouteException.class)
 	    public ModelAndView handlingRouteException(RouteException exception) {
@@ -143,7 +157,7 @@ public class RouteFlightController {
 	        mv.addObject("errorMessage", message);
 	        return mv;
 
-	    }*/
+	    }
 
 
 }

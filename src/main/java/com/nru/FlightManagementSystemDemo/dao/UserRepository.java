@@ -12,5 +12,9 @@ public interface UserRepository extends JpaRepository<FlightUser, Long> {
 
 	Optional<FlightUser> findById(String username);
 
+	Optional<FlightUser> findByUsername(String username);
+
+	//Optional<Admin> findByUsername(String username);
+
 	
 }

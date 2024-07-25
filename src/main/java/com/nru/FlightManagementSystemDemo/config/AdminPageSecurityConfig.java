@@ -27,15 +27,16 @@ public class AdminPageSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf(csrf -> csrf.disable())
         .authorizeRequests(requests -> requests
                 .antMatchers("/admin/**").authenticated()
-                //.antMatchers("/**").permitAll()
+                .antMatchers("/**").permitAll()
                 )
                 .formLogin(form -> form
-                		.loginPage("/login")
+                		.loginPage("/admin/login")
                 		.permitAll())
+                
+               
                 .logout(logout -> logout
                 		.addLogoutHandler(customeLogoutHandler)
                 		.logoutUrl("/dologout")
                 		); 
-        return;
 	}
 }

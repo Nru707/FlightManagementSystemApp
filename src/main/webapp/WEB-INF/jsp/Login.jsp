@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,7 @@
         <div class="login-box">
             <h2>Login</h2>
             <div class="error">${errorMessage}</div>
-            <form action="${pageContext.request.contextPath}/Login" method="post">
+            <form:form action="Login" method="post">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required 
                     class="${not empty errorMessage ? 'input-error' : ''}">
@@ -39,7 +40,7 @@
                     class="${not empty errorMessage ? 'input-error' : ''}">
                     <br><br>
                  <input type="submit" value="Login">
-            </form>
+            </form:form >
             <div class="login-options">
                 <a href="${pageContext.request.contextPath}/forgotPassword.jsp">Forgot Password?</a>
                 <a href="${pageContext.request.contextPath}/newUser">Don't have an account? Create one</a>

@@ -24,7 +24,7 @@
         <a class="nav-link" href="${pageContext.request.contextPath}/">Home</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="${pageContext.request.contextPath}/login">ADMIN</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/admin/login">ADMIN</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="${pageContext.request.contextPath}/Login">Login</a>
