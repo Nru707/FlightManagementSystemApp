@@ -7,10 +7,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+@Configuration
 public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
 	@Override
@@ -19,10 +21,10 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
 		System.out.println(roles);
 		
-		 if (roles.contains("admin")) {
+		 if (roles.contains("ROLE_ADMIN")) {
 	            response.sendRedirect("/Admin/");
-	        } else if (roles.contains("Customer")) {
-	            response.sendRedirect("/Customer/");
+	        } else if (roles.contains("ROLE_CUSTOMER")) {
+	            response.sendRedirect("/customer/");
 	        } else {
 	            response.sendRedirect("/"); // Default redirect if no specific role
 	        }

@@ -64,7 +64,7 @@
                 <br>
                 <label for="userType">User Type:</label>
                 <select id="userType" name="userType" required>
-                    <option value="Customer">Customer</option>
+                    <option value="ROLE_CUSTOMER">Customer</option>
                     </select>
                 <div class="show-password">
                     <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()">

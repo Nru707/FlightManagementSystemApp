@@ -34,7 +34,7 @@
           FLIGHT BOOKING
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="${pageContext.request.contextPath}/Customer/flight-search">FLIGHT SEARCH</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/customer/flight-search">FLIGHT SEARCH</a>
         </div>
       </li>
       

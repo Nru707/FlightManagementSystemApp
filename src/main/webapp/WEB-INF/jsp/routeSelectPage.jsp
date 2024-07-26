@@ -14,7 +14,7 @@
  <div class="row justify-content-center">
                         <div class="col-md-6 form-container">
                             <h3 class="text-center form-title">Route Form</h3>
-                            <form:form id="flightForm" action="${pageContext.request.contextPath}/Customer/flight-search" method="post">
+                            <form:form id="flightForm" action="${pageContext.request.contextPath}/customer/flight-search" method="post">
                                 <div class="form-group">
                                     <label for="fromCity">Enter Source Airport:</label>
                                     <input type="text" class="form-control"  name="fromCity" required>

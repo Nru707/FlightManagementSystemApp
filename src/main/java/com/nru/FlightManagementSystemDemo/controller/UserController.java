@@ -34,7 +34,7 @@ import com.nru.FlightManagementSystemDemo.service.TicketService;
 @ControllerAdvice
 @Controller
 @RestController
-@RequestMapping("/Customer")
+@RequestMapping("/customer")
 public class UserController {
 
 	@Autowired

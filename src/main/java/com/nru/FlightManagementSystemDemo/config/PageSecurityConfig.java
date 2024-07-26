@@ -56,8 +56,8 @@ public class PageSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable()).authorizeRequests(requests -> requests.antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasRole("CUSTOMER")
+        http.csrf(csrf -> csrf.disable()).authorizeRequests(requests -> requests.antMatchers("/Admin/**").hasRole("ADMIN")
+                .antMatchers("/customer/**").hasRole("CUSTOMER")
                 .antMatchers("/**").permitAll())
                 .formLogin(login -> login.loginPage("/Login").loginProcessingUrl("/Login").successHandler(successHandler)
                         .permitAll());

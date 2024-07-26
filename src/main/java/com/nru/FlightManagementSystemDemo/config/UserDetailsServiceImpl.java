@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			flightUser.setUsername("admin");
 			flightUser.setEmail("nru707@gmail.com");
 			flightUser.setPassword(passwordEncoder.encode("Amra29260@"));
-			flightUser.setUserType("admin");
+			flightUser.setUserType("ROLE_ADMIN");
 			repo.save(flightUser);
 		}
 
