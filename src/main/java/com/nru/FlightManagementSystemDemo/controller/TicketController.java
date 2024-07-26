@@ -1,6 +1,6 @@
 package com.nru.FlightManagementSystemDemo.controller;
 
-import java.util.ArrayList;
+/*import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
@@ -25,6 +26,7 @@ import com.nru.FlightManagementSystemDemo.service.TicketService;
 
 @ControllerAdvice
 @RestController
+@RequestMapping("/Customer")
 public class TicketController {
 	
 	@Autowired
@@ -88,7 +90,7 @@ public class TicketController {
                 passengerDao.save(passenger);
             }
         } else {
-            /*throw new SeatNotFoundException();*/
+            //throw new SeatNotFoundException();
         }
         Double totalAmount = ticketService.totalBillCalculation(passengerList);
         ticket.setTotalAmount(totalAmount);
@@ -102,5 +104,6 @@ public class TicketController {
         return mv;
     }
     }
+    */
 
 

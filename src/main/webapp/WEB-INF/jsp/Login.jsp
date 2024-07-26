@@ -31,15 +31,15 @@
         <div class="login-box">
             <h2>Login</h2>
             <div class="error">${errorMessage}</div>
-            <form:form action="Login" method="post">
+            <form:form action="/Login" method="post">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required 
+                <input type="email"  name="username" required 
                     class="${not empty errorMessage ? 'input-error' : ''}">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required 
+                <input type="password"  name="password" required 
                     class="${not empty errorMessage ? 'input-error' : ''}">
                     <br><br>
-                 <input type="submit" value="Login">
+                 <input type="submit" herf="/user/userindex"value="Login">
             </form:form >
             <div class="login-options">
                 <a href="${pageContext.request.contextPath}/forgotPassword.jsp">Forgot Password?</a>

@@ -16,18 +16,23 @@ public class FlightUser  {
     private String username;
     private String email;
     private String password;
-    //private String userType;
+    private String userType;
+    
+    
+    public FlightUser(Long id, String username, String email, String password, String userType) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.userType = userType;
+	}
+
+	
 
     // Constructors
     public FlightUser() {
     	super();
-    }
-
-    public FlightUser(String username, String email, String password) {
-    	super();
-        this.username = username;
-        this.email = email;
-        this.password = password;
     }
 
     // Getters and Setters
@@ -63,16 +68,11 @@ public class FlightUser  {
         this.password = password;
     }
     
-  /*  public String getUserType() {
+   public String getUserType() {
         return userType;
     }
 
     public void setUserType(String userType) {
         this.userType = userType;
     }
-
-	public String getType() {
-		// TODO Auto-generated method stub
-		return userType;
-	}*/
 }

@@ -15,7 +15,7 @@
 <%@include file="Base3.jsp" %>
 <br>
  <div class="details-container" align="center">
-                <form:form action="/ticket" method="post" modelAttribute="ticketRecord">
+                <form:form action="${pageContext.request.contextPath}/Customer/ticket" method="post" modelAttribute="ticketRecord">
                     <form:hidden path="ticketNumber" />
                     <form:hidden path="flightNumber" />
                     <form:hidden path="carrierName" />

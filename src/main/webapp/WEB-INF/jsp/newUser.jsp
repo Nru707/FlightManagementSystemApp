@@ -62,11 +62,10 @@
                 <label for="confirmPassword">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
                 <br>
-                <!--<label for="userType">User Type:</label>
+                <label for="userType">User Type:</label>
                 <select id="userType" name="userType" required>
                     <option value="Customer">Customer</option>
-                    <!-- <option value="Admin">Admin</option> 
-                </select>-->
+                    </select>
                 <div class="show-password">
                     <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()">
                     <label for="showPassword">Show Password</label>

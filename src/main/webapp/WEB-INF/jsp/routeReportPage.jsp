@@ -40,7 +40,7 @@
   
 </table>
 	<br>
-	<a class="btn btn-primary" href="${pageContext.request.contextPath}/index" role="button">RETURN TO HOME</a>
+	<a class="btn btn-primary" href="${pageContext.request.contextPath}/Admin/" role="button">RETURN TO HOME</a>
 </div>
 
  <footer>

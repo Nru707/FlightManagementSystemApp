@@ -28,7 +28,7 @@
     <tr>
     <td><c:out value="${airport.airportCode}" /></td>
 	<td><c:out value="${airport.airportLocation}" /></td>
-	<td><a class="btn btn-primary" href="/admin/airport/${airport.airportCode}" role="button">ENQUIRE</a></td>
+	<td><a class="btn btn-primary" href="${pageContext.request.contextPath}/Admin/airport/${airport.airportCode}" role="button">ENQUIRE</a></td>
     </tr>
     </c:forEach>
   

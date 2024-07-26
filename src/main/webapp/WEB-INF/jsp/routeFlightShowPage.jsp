@@ -40,7 +40,7 @@
                                             value="${flight.seatCapacity-flight.seatBooked}" />
                                         <td>${seatAvailable}</td>
                                         <td>${fare}</td>
-                                      <td><a href="/ticket/${flight.flightNumber}" >Book Ticket</a></td>
+                                      <td><a href="${pageContext.request.contextPath}/Customer/ticket/${flight.flightNumber}" >Book Ticket</a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>

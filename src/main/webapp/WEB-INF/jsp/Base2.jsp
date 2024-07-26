@@ -26,20 +26,20 @@
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto text-uppercase">
       <li class="nav-item">
-        <a class="nav-link nav-item active" href="/admin/index">HOME</a>
+        <a class="nav-link nav-item active" href="${pageContext.request.contextPath}/Admin/">HOME</a>
       </li>
        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           AIRPORT
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/admin/airport">ADD AIRPORT</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/Admin/airport">ADD AIRPORT</a>
           
           <!--  <div class="dropdown-divider border border-dark"></div>
           <a class="dropdown-item" href="/airport-select">AIRPORT SEARCH</a>-->
           
           <div class="dropdown-divider border border-dark"></div>
-          <a class="dropdown-item" href="/admin/airports">AIRPORT REPORT</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/Admin/airports">AIRPORT REPORT</a>
         </div>
       </li>
       
@@ -49,9 +49,9 @@
           ROUTE
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/admin/routeEntryPage">SELECT ROUTE</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/Admin/routeEntryPage">SELECT ROUTE</a>
           <div class="dropdown-divider border border-dark"></div>
-          <a class="dropdown-item" href="/admin/routes">ALL ROUTE</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/Admin/routes">ALL ROUTE</a>
         </div>
       </li>
       
@@ -60,9 +60,9 @@
           FLIGHT
         </a>
         <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/admin/flight">FLIGHT ENTRY</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/Admin/flight">FLIGHT ENTRY</a>
           <div class="dropdown-divider border border-dark"></div>
-          <a class="dropdown-item" href="/admin/flights">FLIGHT REPORTS</a>
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/Admin/flights">FLIGHT REPORTS</a>
         </div>
       </li>
       

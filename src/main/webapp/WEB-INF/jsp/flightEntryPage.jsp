@@ -13,7 +13,7 @@
                     <div class="row justify-content-center">
                         <div class="col-md-8 form-container">
                             <h3 class="text-center form-title">Flight Form</h3>
-                            <form:form action="/admin/flight" method="post" modelAttribute="flightRecord">
+                            <form:form action="${pageContext.request.contextPath}/Admin/flight" method="post" modelAttribute="flightRecord">
                                 <div class="form-group">
                                     <label for="flightNumber">Enter Flight ID:</label>
                                     <form:input path="flightNumber" class="form-control" id="flightNumber" />
@@ -55,8 +55,9 @@
                                     <input type="text" name="atime" class="form-control" id="atime" />
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-custom">Submit</button>
+                                    <button type="submit"  class="btn btn-primary btn-custom">Submit</button>
                                     <button type="reset" class="btn btn-secondary btn-custom">Reset</button>
+                                    <a href="${pageContext.request.contextPath}/Admin/" class="btn btn-secondary btn-custom">Back</a>
                                 </div>
                             </form:form>
                         
