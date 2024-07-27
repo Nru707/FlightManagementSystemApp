@@ -80,7 +80,7 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-uppercase">
       <li class="nav-item active font-weight-bold">
-        <a class="nav-link" href="/dologout">Logout</a>
+        <a class="nav-link" href="/Logout">Logout</a>
       </li>
     </ul>
   </div>

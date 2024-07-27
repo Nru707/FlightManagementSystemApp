@@ -17,7 +17,13 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableWebSecurity
 public class PageSecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	private LogOutHandler logOutHandler;
 	
+	@Autowired
+	public void setLogOutHandler(LogOutHandler logOutHandler) {
+		this.logOutHandler = logOutHandler;
+	}
+
 	private AuthenticationSuccessHandler successHandler;
 	
 	@Autowired
@@ -59,8 +65,8 @@ public class PageSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf(csrf -> csrf.disable()).authorizeRequests(requests -> requests.antMatchers("/Admin/**").hasRole("ADMIN")
                 .antMatchers("/customer/**").hasRole("CUSTOMER")
                 .antMatchers("/**").permitAll())
-                .formLogin(login -> login.loginPage("/Login").loginProcessingUrl("/Login").successHandler(successHandler)
-                        .permitAll());
+                .formLogin(login -> login.loginPage("/Login").loginProcessingUrl("/Login").successHandler(successHandler).permitAll())
+                .logout(logout -> logout.addLogoutHandler(logOutHandler).logoutUrl("/Logout"));
 	}
 
 }
