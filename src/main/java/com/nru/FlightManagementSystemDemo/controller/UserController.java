@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.FlightManagementSystemDemo.exception.AirportException;
 import com.FlightManagementSystemDemo.exception.RouteException;
+import com.nru.FlightManagementSystemDemo.bean.Airport;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
 import com.nru.FlightManagementSystemDemo.bean.Passenger;
 import com.nru.FlightManagementSystemDemo.bean.Route;
@@ -60,6 +62,45 @@ public class UserController {
 		return new ModelAndView("userindex");
 	}
 
+	@GetMapping("/airport")
+	public ModelAndView showIndexPage() {
+		return new ModelAndView("CustomerAirportShowPage");
+	}
+
+	@GetMapping("/airports")
+	public ModelAndView showAirportReportPage() {
+		try {
+			List<Airport> airportList = airportDao.findAllAirports();
+			ModelAndView mv = new ModelAndView("CustomerAirportReportPage");
+			mv.addObject("airportList", airportList);
+			return mv;
+		} catch (Exception e) {
+			throw new AirportException("Error displaying airport report page: " + e.getMessage());
+		}
+	}
+
+	@GetMapping("/airport/{id}")
+	public ModelAndView showSingleAirportPage(@PathVariable("id") String id) {
+		try {
+			Airport airport = airportDao.findAirportById(id);
+			if (airport == null) {
+				throw new AirportException("Airport with ID " + id + " not found.");
+			}
+			ModelAndView mv = new ModelAndView("CustomerAirportShowPage");
+			mv.addObject("airport", airport);
+			return mv;
+		} catch (Exception e) {
+			throw new AirportException("Error displaying airport: " + e.getMessage());
+		}
+	}
+
+	@GetMapping("/routes")
+	public ModelAndView showAirportSelectPage() {
+		List<Route> routeList = routeDao.findAllRoutes();
+		ModelAndView mv = new ModelAndView("CustomerRouteReportPage");
+		mv.addObject("routeList", routeList);
+		return mv;
+	}
 	@GetMapping("/flight-search")
 	public ModelAndView showRouteSelectPage() {
 		List<String> airportList = airportDao.findAllAirportLocations();

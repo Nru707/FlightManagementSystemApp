@@ -40,12 +40,12 @@
                                             value="${flight.seatCapacity-flight.seatBooked}" />
                                         <td>${seatAvailable}</td>
                                         <td>${fare}</td>
-                                      <td><a href="${pageContext.request.contextPath}/customer/ticket/${flight.flightNumber}" >Book Ticket</a></td>
+                                      <td><a href="${pageContext.request.contextPath}/customer/ticket/${flight.flightNumber}" class="home-link btn btn-primary" >Book Ticket</a></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
-                        <a href="/userindex" class="home-link btn btn-primary">Back to Home</a>
+                        <a href="${pageContext.request.contextPath}/customer/" class="home-link btn btn-primary">Back to Home</a>
                     </div>
                 </div>
 </body>

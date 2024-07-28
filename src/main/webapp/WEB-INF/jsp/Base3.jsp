@@ -26,10 +26,27 @@
  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto text-uppercase">
       <li class="nav-item">
-        <a class="nav-link nav-item active" href="/userindex">HOME</a>
+        <a class="nav-link nav-item active" href="${pageContext.request.contextPath}/customer/">HOME</a>
       </li>
       
        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AIRPORT
+        </a>
+        <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/customer/airports">AIRPORT REPORT</a>
+        </div>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ROUTE
+        </a>
+        <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/customer/routes">ALL ROUTE</a>
+        </div>
+      </li>
+      
+    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           FLIGHT BOOKING
         </a>
