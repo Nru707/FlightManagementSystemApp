@@ -21,6 +21,8 @@
     <th>AIRPORT CODE</th>
 	<th>AIRPORT LOCATION</th>
 	<th>ENQUIRE</th>
+	<th>MODIFY</th>
+	<th>DELETE</th>
     </tr>
   </thead>
   <tbody>
@@ -28,7 +30,9 @@
     <tr>
     <td><c:out value="${airport.airportCode}" /></td>
 	<td><c:out value="${airport.airportLocation}" /></td>
-	<td><a class="btn btn-primary" href="${pageContext.request.contextPath}/Admin/airport/${airport.airportCode}" role="button">ENQUIRE</a></td>
+	<td><a href="${pageContext.request.contextPath}/Admin/airport/${airport.airportCode}" class="btn btn-primary" role="button">ENQUIRE</a></td>
+	  <td><a href="${pageContext.request.contextPath}/Admin/UpdateAirport/${airport.airportCode}" class="btn btn-secondary" role="button">MODIFY</a></td>
+      <td><a href="${pageContext.request.contextPath}/Admin/DeleteAirport/${airport.airportCode}" class="btn btn-danger" role="button">DELETE</a></td>
     </tr>
     </c:forEach>
   

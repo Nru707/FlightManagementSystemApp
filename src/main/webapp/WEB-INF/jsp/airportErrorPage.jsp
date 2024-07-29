@@ -16,7 +16,7 @@
                 <div class="col-md-8 error-container">
                     <h1 class="error-title">Error</h1>
                     <p>${errorMessage}</p>
-                    <a href="/admin/airport" class="btn btn-primary">Go Back</a>
+                    <a href="${pageContext.request.contextPath}/Admin/airport" class="btn btn-primary">Go Back</a>
                 </div>
             </div>
         </div>

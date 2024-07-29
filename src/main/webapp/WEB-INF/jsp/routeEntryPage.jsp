@@ -23,7 +23,8 @@
    <br><br>
    ENTER ROUTE FAIR: <form:input  path="fare" required="required"/>
    <br><br>
-  <button type="submit">SUBMIT</button>
+  <button type="submit" class="btn btn-primary">SUBMIT</button>
+  <a href="${pageContext.request.contextPath}/Admin/" type="submit" class="btn btn-primary">BACK HOME</a>
 
 </form:form>
 </h3>

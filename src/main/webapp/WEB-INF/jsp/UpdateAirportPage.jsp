@@ -16,12 +16,13 @@
    <div style="text-align: center;">
    <br><br>
    <h3 >
-   <form:form action="${pageContext.request.contextPath}/Admin/airport" method="post" modelAttribute="airportRecord">
+   
+   <form:form action="${pageContext.request.contextPath}/Admin/UpdateAirport" method="post" modelAttribute="airport">
    ENTER AIRPORT CITY: <form:input  path="airportLocation" required="required"/>
    <br><br>
    ENTER AIRPORT CODE: <form:input  path="airportCode" required="required"/>
    <br><br>
-  <button type="submit" class="btn btn-primary">SUBMIT</button>
+    <button type="submit" class="btn btn-primary">SAVE CHANGES</button>
   <a href="${pageContext.request.contextPath}/Admin/" type="submit" class="btn btn-primary">BACK HOME</a>
 
 </form:form>

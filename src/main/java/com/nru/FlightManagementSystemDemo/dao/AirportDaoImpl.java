@@ -11,61 +11,46 @@ import com.nru.FlightManagementSystemDemo.bean.Airport;
 @Repository
 @Service
 public class AirportDaoImpl implements AirportDao {
-	
+
 	@Autowired
-	private  AirportRepository repository;
+	private AirportRepository repository;
 
 	@Override
 	public void addAirport(Airport airport) {
 		repository.save(airport);
 	}
 
-
 	@Override
 	public List<Airport> findAllAirports() {
-		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 
 	@Override
 	public Airport findAirportById(String id) {
-		// TODO Auto-generated method stub
-		return  repository.findById(id).get();
+		return repository.findById(id).get();
 	}
-
-	/*@Override
-	public List<String> findAllAirportCodes() {
-		// TODO Auto-generated method stub
-		return repository.findAllAirportCodes();
-	}
-*/
 
 	@Override
 	public String findAirportCodeByLocation(String airportLocation) {
-		// TODO Auto-generated method stub
 		return repository.findAirportCodeByLocation(airportLocation);
 	}
 
-
 	@Override
 	public List<String> findAllAirportLocations() {
-		
+
 		return repository.findAllAirportLocations();
 	}
 
+	@Override
+	public void updateAirport(Airport airport) {
+		repository.save(airport);
 
-	/*@Override
-	public List<String> findAllRoutes() {
-		// TODO Auto-generated method stub
-		return null;
 	}
-
 
 	@Override
-	public List<String> findAllAirportCodes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
-}
+	public void deleteAirport(Airport airport) {
+		repository.delete(airport);
 
+	}
+
+}

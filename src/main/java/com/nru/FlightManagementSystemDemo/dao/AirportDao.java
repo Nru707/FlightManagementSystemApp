@@ -1,29 +1,22 @@
 package com.nru.FlightManagementSystemDemo.dao;
 
-
-
 import java.util.List;
 
-
-
 import com.nru.FlightManagementSystemDemo.bean.Airport;
+
 public interface AirportDao {
-   public void addAirport(Airport airport);
+	public void addAirport(Airport airport);
 
-   public List<Airport> findAllAirports();
+	public List<Airport> findAllAirports();
 
-   public Airport findAirportById(String id);
-   
-   /*public List<String> findAllAirportCodes();*/
+	public Airport findAirportById(String id);
 
+	public String findAirportCodeByLocation(String AirportLocation);
 
-public String findAirportCodeByLocation(String AirportLocation);
+	public List<String> findAllAirportLocations();
 
-/*public List<String> findAllRoutes();*/
+	public void updateAirport(Airport airport);
 
-public List<String> findAllAirportLocations();
-
-
-
+	public void deleteAirport(Airport airport);
 
 }

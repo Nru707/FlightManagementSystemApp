@@ -78,15 +78,15 @@ public class AdminController {
 			String stg = airport.getAirportLocation().toUpperCase();
 			airport.setAirportLocation(stg);
 
-			if (airport.getAirportCode().length() != 3) {
-				throw new AirportException("Airport code must be 3 characters long.");
+			if (airport.getAirportCode().length() != 2) {
+				throw new AirportException("Airport code must be 2 characters long.");
 			}
 
-			if (airport.getAirportLocation().length() < 3) {
-				throw new AirportException("Airport location must be at least 3 characters long.");
+			if (airport.getAirportLocation().length() <= 2) {
+				throw new AirportException("Airport location must be at least 2 characters long.");
 			}
 			airportDao.addAirport(airport);
-			return new ModelAndView("index");
+			return new ModelAndView("redirect:/Admin/");
 		} catch (Exception e) {
 			throw new AirportException("Error saving airport: " + e.getMessage());
 		}
@@ -116,6 +116,76 @@ public class AdminController {
 			return mv;
 		} catch (Exception e) {
 			throw new AirportException("Error displaying airport report page: " + e.getMessage());
+		}
+	}
+	
+	@GetMapping("/UpdateAirport/{id}")
+	public ModelAndView showUpdateAirportPage(@PathVariable("id") String id) {
+		try {
+			Airport airport = airportDao.findAirportById(id.toUpperCase());
+			if (airport == null) {
+				throw new AirportException("Airport with ID " + id + " not found.");
+			}
+			ModelAndView mv = new ModelAndView("UpdateAirportPage");
+			mv.addObject("airport", airport);
+			return mv;
+		} catch (Exception e) {
+			throw new AirportException("Error displaying airport: " + e.getMessage());
+		}
+	}
+
+	@PostMapping("/UpdateAirport")
+	public ModelAndView updateAirport(@ModelAttribute("airport") Airport airport) {
+		try {
+			String str = airport.getAirportCode().toUpperCase();
+			airport.setAirportCode(str);
+
+			String stg = airport.getAirportLocation().toUpperCase();
+			airport.setAirportLocation(stg);
+
+			if (airport.getAirportCode().length() != 2) {
+				throw new AirportException("Airport code must be 2 characters long.");
+			}
+
+			if (airport.getAirportLocation().length() <= 2) {
+				throw new AirportException("Airport location must be at least 2 characters long.");
+			}
+
+			airportDao.updateAirport(airport);
+			return new ModelAndView("redirect:/Admin/");
+		} catch (Exception e) {
+			throw new AirportException("Error updating airport: " + e.getMessage());
+		}
+	}
+	
+	@GetMapping("/DeleteAirport/{id}")
+	public ModelAndView showDeleteAirportPage(@PathVariable("id") String id) {
+		try {
+			// Find the airport by ID
+			Airport airport = airportDao.findAirportById(id.toUpperCase());
+			if (airport == null) {
+				throw new AirportException("Airport with ID " + id + " not found.");
+			}
+			ModelAndView mv = new ModelAndView("DeleteAirportPage");
+			mv.addObject("airport", airport);
+			return mv;
+		} catch (Exception e) {
+			throw new AirportException("Error displaying airport: " + e.getMessage());
+		}
+	}
+
+	// Delete the airport
+	@PostMapping("/DeleteAirport")
+	public ModelAndView deleteAirport(@RequestParam("airportCode") String airportCode) {
+		try {
+			Airport airport = airportDao.findAirportById(airportCode.toUpperCase());
+			if (airport == null) {
+				throw new AirportException("Airport not found.");
+			}
+			airportDao.deleteAirport(airport);
+			return new ModelAndView("redirect:/Admin/");
+		} catch (Exception e) {
+			throw new AirportException("Error deleting airport: " + e.getMessage());
 		}
 	}
 
