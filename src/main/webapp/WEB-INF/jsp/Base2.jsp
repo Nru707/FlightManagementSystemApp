@@ -66,6 +66,14 @@
         </div>
       </li>
       
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PASSENGER
+        </a>
+        <div class="dropdown-menu border border-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="${pageContext.request.contextPath}/Admin/Passengers">PASSENGER REPORT</a>
+        </div>
+      </li>
        <!--  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle nav-item active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           FLIGHT BOOKING

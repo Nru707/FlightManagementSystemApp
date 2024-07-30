@@ -101,6 +101,7 @@ public class UserController {
 		mv.addObject("routeList", routeList);
 		return mv;
 	}
+
 	@GetMapping("/flight-search")
 	public ModelAndView showRouteSelectPage() {
 		List<String> airportList = airportDao.findAllAirportLocations();
@@ -189,6 +190,13 @@ public class UserController {
 		mv.addObject("passengerList", passengerList);
 		return mv;
 	}
+
+	/*
+	 * @GetMapping("/CustomerTickets") public ModelAndView showCustomerTicketsPage()
+	 * { List<Ticket> ticketList = TicketDao.findAllTickets(); ModelAndView mv = new
+	 * ModelAndView("MyTicketPage"); mv.addObject("routeList", routeList); return
+	 * mv; }
+	 */
 
 	@ExceptionHandler(value = RouteException.class)
 	public ModelAndView handlingRouteException(RouteException exception) {

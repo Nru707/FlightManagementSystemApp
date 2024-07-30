@@ -20,9 +20,11 @@ import com.FlightManagementSystemDemo.exception.FlightException;
 import com.FlightManagementSystemDemo.exception.RouteException;
 import com.nru.FlightManagementSystemDemo.bean.Airport;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
+import com.nru.FlightManagementSystemDemo.bean.Passenger;
 import com.nru.FlightManagementSystemDemo.bean.Route;
 import com.nru.FlightManagementSystemDemo.dao.AirportDao;
 import com.nru.FlightManagementSystemDemo.dao.FlightDao;
+import com.nru.FlightManagementSystemDemo.dao.PassengerDao;
 import com.nru.FlightManagementSystemDemo.dao.RouteDao;
 import com.nru.FlightManagementSystemDemo.service.FlightService;
 import com.nru.FlightManagementSystemDemo.service.RouteService;
@@ -35,6 +37,9 @@ public class AdminController {
 
 	@Autowired
 	private AirportDao airportDao;
+	
+	@Autowired
+	private PassengerDao passengerDao;
 
 	@Autowired
 	private RouteDao routeDao;
@@ -260,6 +265,14 @@ public class AdminController {
 		mv.addObject("flightList", flightList);
 		return mv;
 	}
+	@GetMapping("/Passengers")
+	public ModelAndView showPassengerReportPage() {
+		List<Passenger> PassengerList = passengerDao.findAllPassengers();
+		ModelAndView mv = new ModelAndView("passengerReportPage");
+		mv.addObject("PassengerList", PassengerList);
+		return mv;
+	}
+	
 
 	@ExceptionHandler(value = FlightException.class)
 	public ModelAndView handlingFlightException(FlightException exception) {

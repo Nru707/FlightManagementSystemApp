@@ -11,4 +11,6 @@ public interface PassengerDao {
 
 	public List<Passenger> findByTicketId(Long ticketNumber);
 
+	public List<Passenger> findAllPassengers();
+
 }

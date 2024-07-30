@@ -46,11 +46,10 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <form:form action=" " method="post"
-                                modelAttribute="ticketRecord">
+                           <!--  <form:form action=" " method="post" modelAttribute="ticketRecord">
                                 <input type="hidden" name="ticketNumber" value="${ticketRecord.ticketNumber}" />
                                 <button type="submit" class="btn btn-danger">Cancel Ticket</button>
-                            </form:form>
+                            </form:form>  -->
                         </div>
 </body>
 </html>

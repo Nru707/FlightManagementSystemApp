@@ -11,7 +11,7 @@ import com.nru.FlightManagementSystemDemo.bean.Passenger;
 @Service
 @Repository
 public class PassengerDaoImpl implements PassengerDao {
-	
+
 	@Autowired
 	private PassengerRepository repository;
 
@@ -19,12 +19,15 @@ public class PassengerDaoImpl implements PassengerDao {
 	public void save(Passenger passenger) {
 		repository.save(passenger);
 	}
+	
+	@Override
+	public List<Passenger> findAllPassengers() {
+		return repository.findAll();
+	}
 
 	@Override
 	public List<Passenger> findByTicketId(Long ticketNumber) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }
