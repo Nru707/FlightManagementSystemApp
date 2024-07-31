@@ -255,7 +255,7 @@ public class AdminController {
 		Flight flight2 = flightService.createReturnFlight(flight1, dtime, atime);
 		flightDao.save(flight1);
 		flightDao.save(flight2);
-		return new ModelAndView("redirect:/Admin/index");
+		return new ModelAndView("redirect:/Admin/");
 	}
 
 	@GetMapping("/flights")
