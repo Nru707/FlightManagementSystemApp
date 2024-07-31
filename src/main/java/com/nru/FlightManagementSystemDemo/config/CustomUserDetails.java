@@ -11,6 +11,7 @@ import com.nru.FlightManagementSystemDemo.bean.FlightUser;
 
 public class CustomUserDetails implements UserDetails{
 	
+	private static final long serialVersionUID = 1L;
 	private FlightUser flightuser;
 
 
