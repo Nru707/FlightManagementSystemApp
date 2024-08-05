@@ -39,7 +39,7 @@
                 <input type="password"  name="password" required 
                     class="${not empty errorMessage ? 'input-error' : ''}">
                     <br><br>
-                 <input type="submit" herf="/user/userindex"value="Login">
+                 <input class="bg-primary" type="submit" herf="/user/userindex"value="Login">
             </form:form >
             <div class="login-options">
                 <a href="${pageContext.request.contextPath}/forgotPassword.jsp">Forgot Password?</a>

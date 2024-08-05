@@ -70,7 +70,7 @@
                     <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()">
                     <label for="showPassword">Show Password</label>
                 </div>
-                <input type="submit" value="Register">
+                <input class="bg-primary" type="submit" value="Register">
             </form>
         </div>
     </div>
