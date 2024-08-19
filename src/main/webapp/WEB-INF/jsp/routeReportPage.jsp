@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,40 +12,46 @@
 </style>
 </head>
 <body>
-<header>
- <%@include file="Base2.jsp" %>
- </header>
-<div class=" text-center">
-	<h3 class="font-weight-bold text-dark">ROUTE LIST</h3>
-	<table class="table table-striped table-bordered ">
-  <thead class="thead-dark">
-    <tr>
-    <th>ROUTE ID</th>
-    <th>SOURCE CODE</th>
-	<th>DESTINATION CODE</th>
-	<th>ROUTE FARE</th>
-    </tr>
-  </thead>
-  <tbody>
-  <c:forEach items="${routeList }" var="route">
-    <tr>
-    <td><c:out value="${route.routeId}" /></td>
-    <td><c:out value="${route.sourceAirportCode}" /></td>
-	<td><c:out value="${route.destinationAirportCode}" /></td>
-	<td><c:out value="${route.fare}" /></td>
-    </tr>
-    </c:forEach>
-  
-  </tbody>
-  
-</table>
-	<br>
-	<a class="btn btn-primary" href="${pageContext.request.contextPath}/Admin/" role="button">RETURN TO HOME</a>
-</div>
+		<%@include file="Base2.jsp"%>
+	<div class=" text-center">
+		<div class="routeshow-box">
+			<h3 class=" text-center font-weight-bold text-dark">ROUTE REPORT</h3>
+			<table class="table table-striped table-bordered ">
+				<thead class="thead-dark">
+					<tr>
+						<th>ROUTE ID</th>
+						<th>SOURCE CODE</th>
+						<th>DESTINATION CODE</th>
+						<th>ROUTE FARE</th>
+						<th>MODIFY</th>
+						<th>DELETE</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${routeList }" var="route">
+						<tr>
+							<td><c:out value="${route.routeId}" /></td>
+							<td><c:out value="${route.sourceAirportCode}" /></td>
+							<td><c:out value="${route.destinationAirportCode}" /></td>
+							<td><c:out value="${route.fare}" /></td>
+							<td><a
+								href="${pageContext.request.contextPath}/Admin/updateroute/${route.routeId}"
+								class="btn btn-secondary" role="button">MODIFY</a></td>
+							<td><a
+								href="${pageContext.request.contextPath}/Admin/deleteroute/${route.routeId}"
+								class="btn btn-danger" role="button">DELETE</a></td>
+						</tr>
+					</c:forEach>
 
- <footer>
-        Flight Management System @2024 Infosys Springboard
-    </footer>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer> Flight Management System @2024 Infosys Springboard </footer>
 
 </body>
 </html>

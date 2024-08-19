@@ -5,17 +5,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
 <%@include file="/WEB-INF/css/style.css" %>
+.input-group-text {
+   width: 30%;
+} 
 </style>
 </head>
 <body>
 <%@include file="Base3.jsp" %>
-<br>
- <div class="details-container" align="center">
-                <form:form action="${pageContext.request.contextPath}/customer/ticket" method="post" modelAttribute="ticketRecord">
+        <div class="flightbook-box">
+            <div class="card-header text-center">
+            <form:form action="${pageContext.request.contextPath}/customer/ticket" method="post" modelAttribute="ticketRecord">
                     <form:hidden path="ticketNumber" />
                     <form:hidden path="flightNumber" />
                     <form:hidden path="carrierName" />
@@ -23,54 +26,93 @@
                     <input type="hidden" name="toLocation" value="${route.destinationAirportCode}" />
                     <input type="hidden" name="fare" value="${route.fare}" />
                     <h3>Flight Booking Details</h3>
-                    <table>
-                        <tr>
-                            <td><label class="required">Ticket Number : </label><form:input path="ticketNumber" disabled="true" /></td>
-                            <td><label class="required">Flight Number : </label><form:input path="flightNumber" disabled="true" /></td>
-                            <td><label class="required">Airlines Name : </label><form:input path="carrierName" disabled="true" /></td>
-                        </tr>
-                        <tr>
-                            <td><label class="required">From : </label><input type="text"  value="${route.sourceAirportCode}" disabled="true" /></td>
-                            <td><label class="required" >To : </label><input type="text"  value="${route.destinationAirportCode}" disabled="true"  /></td>
-                            <td><label class="required" >Fare : </label><input type="text"  value="${route.fare}"  disabled="true"/></td>
-                        </tr>
-                    </table>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Ticket No.</span>
+                            <form:input path="ticketNumber" class="form-control" disabled="true" />
+                        </div>
+            
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Flight No.</span>
+                            <form:input path="flightNumber" class="form-control" disabled="true" />
+                        </div>
+            
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Airline Name</span>
+                            <form:input path="carrierName" class="form-control" disabled="true" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                      
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >From </span>
+                            <input type="text"  value="${route.sourceAirportCode}" class="form-control" disabled="true" />
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >To</span>
+                            <input type="text"  value="${route.destinationAirportCode}"  class="form-control" disabled="true"  />
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" >Fare</span>
+                            <input type="text"  value="${route.fare}"  class="form-control" disabled="true"/>
+                        </div>
+                    </div>
+                </div>
+               </div>
 
                     <h3>Enter Passenger Details :</h3>
-                    <table>
-                        <tr>
-                            <td>Name : <input type="text" name="name1" value="--" placeholder="John Doe" required></td>
-                            <td>Date Of Birth : <input type="date" name="dob1" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder="25-10-2024" required></td>
+                    
+                    <table class="table table-striped table-bordered ">
+                    <thead class="thead-dark">
+					<tr>
+						<th>PASSENGER NAME</th>
+						<th>PASSENGER AGE</th>
+					</tr>
+				</thead>
+						 <tr>
+                            <td><input type="text"  name="name1" placeholder="Enter Passenger Name" required></td>
+                            <td><input type="date" name="dob1" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder="25-10-2024" required></td>
+                        </tr>
+                         <tr>
+                            <td><input type="text" name="name2"  value="--" placeholder="Enter Passenger Name"></td>
+                            <td><input type="date" name="dob2" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder="25-10-2024" ></td>
+                        </tr>
+                         <tr>
+                            <td><input type="text" name="name3" value="--" placeholder="Enter Passenger Name"></td>
+                            <td><input type="date" name="dob3" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder="25-10-2024" ></td>
                         </tr>
                         <tr>
-                            <td>Name : <input type="text" name="name2" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob2" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder="25-10-2024" ></td>
+                            <td><input type="text" name="name4" value="--" placeholder="Enter Passenger Name""></td>
+                            <td><input type="date" name="dob4" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder="25-10-2024" ></td>
                         </tr>
                         <tr>
-                            <td>Name : <input type="text" name="name3" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob3" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder="25-10-2024" ></td>
+                            <td><input type="text" name="name5" value="--" placeholder="Enter Passenger Name"></td>
+                            <td><input type="date" name="dob5" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder="25-10-2024" ></td>
                         </tr>
                         <tr>
-                            <td>Name : <input type="text" name="name4" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob4" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder="25-10-2024" ></td>
+                            <td><input type="text" name="name6" value="--" placeholder="Enter Passenger Name"></td>
+                            <td><input type="date" name="dob6" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder="25-10-2024" ></td>
                         </tr>
-                        <tr>
-                            <td>Name : <input type="text" name="name5" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob5" pattern="\d{1,2}-\d{1,2}-\d{4}" placeholder="25-10-2024" ></td>
-                        </tr>
-                        <tr>
-                            <td>Name : <input type="text" name="name6" value="--" placeholder="John Doe"></td>
-                            <td>Date Of Birth : <input type="date" name="dob6" pattern="\d{1,2}-\d{1,2}-\d{4}"  placeholder="25-10-2024" ></td>
-                        </tr>
-                    </table><br>
-
+                    </table>
                     <button type="submit" class="home-link btn btn-primary">Submit</button>
-
-                </form:form>
-            </div>
+                    <button type="reset" class="btn btn-secondary btn-custom">Reset</button>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/customer/" role="button">RETURN </a>
+                    </form:form>
+				</div>
+          </div>
+            <br>
+            <br>
+            <br>
+            <br>
+  
       <footer>
         Flight Management System @2024 Infosys Springboard
     </footer>
+    
      
 
 </body>

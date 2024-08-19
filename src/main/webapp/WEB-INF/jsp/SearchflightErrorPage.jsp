@@ -10,15 +10,20 @@
 </style>
 </head>
 <body>
+<body>
 <%@include file="Base2.jsp" %>
-    <div class="container">
+<br><br>
+
+ <div class="container">
             <div class="login-box text-center">
-                    <h1 style="color: red">Alert!</h1>
-                    <p>${errorMessage}</p>
-                    <a href="${pageContext.request.contextPath}/Admin/airport" class="btn btn-primary">Go Back</a>
-                </div>
-            </div>
-             <footer>
+	<h1 style="color:red"> ALERT!</h1>
+	
+<p>${errorMessage}</p>
+
+ <a href="${pageContext.request.contextPath}/customer/flight-search" class="btn btn-primary">CLICK HERE TO RE-ENTER</a>
+</div>
+</div>
+    <footer>
         Flight Management System @2024 Infosys Springboard
     </footer>
 

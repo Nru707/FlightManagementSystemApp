@@ -5,6 +5,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
 <title>Login - Flight Management System</title>
     <style>
      <%@include file="/WEB-INF/css/style.css" %>
@@ -41,8 +45,8 @@
                     <br><br>
                  <input class="bg-primary" type="submit" herf="/user/userindex"value="Login">
             </form:form >
-            <div class="login-options">
-                <a href="${pageContext.request.contextPath}/forgotPassword.jsp">Forgot Password?</a>
+            <br>
+            <div class="login-options text-center">
                 <a href="${pageContext.request.contextPath}/newUser">Don't have an account? Create one</a>
             </div>
         </div>

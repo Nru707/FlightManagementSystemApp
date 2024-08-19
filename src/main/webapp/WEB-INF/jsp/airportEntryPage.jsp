@@ -13,20 +13,25 @@
    <body>
    
    <%@include file="Base2.jsp" %>
-   <div style="text-align: center;">
-   <br><br>
-   <h3 >
-   <form:form action="${pageContext.request.contextPath}/Admin/airport" method="post" modelAttribute="airportRecord">
-   ENTER AIRPORT CITY: <form:input  path="airportLocation" required="required"/>
-   <br><br>
-   ENTER AIRPORT CODE: <form:input  path="airportCode" required="required"/>
-   <br><br>
-  <button type="submit" class="btn btn-primary">SUBMIT</button>
+    <div class="container">
+        <div class="login-box">
+           <h3 class="text-center">Airport Form</h3>
+          <form:form action="${pageContext.request.contextPath}/Admin/airport" method="post" modelAttribute="airportRecord">
+               <div class="form-group">
+					<label for="airportLocation">ENTER AIRPORT CITY:</label> <input
+						type="text" class="form-control" name="airportLocation" required>
+				</div>
+               <div class="form-group">
+					<label for="airportCode"> ENTER AIRPORT CODE:</label> <input
+						type="text" class="form-control" name="airportCode" required>
+				</div>
+                    <br><br>
+                  <button type="submit" class="btn btn-primary">SUBMIT</button>
   <a href="${pageContext.request.contextPath}/Admin/" type="submit" class="btn btn-primary">BACK HOME</a>
 
-</form:form>
-</h3>
-</div>
+            </form:form >
+        </div>
+    </div>
  <footer>
         Flight Management System @2024 Infosys Springboard
     </footer>

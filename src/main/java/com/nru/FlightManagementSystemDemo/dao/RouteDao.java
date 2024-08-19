@@ -11,5 +11,6 @@ public interface RouteDao {
 	public Route findRouteBySourceAndDestination(String source, String destination);
 	public Long generateRouteId();
 	public List<Long> findAllRoutesId();
+	public void deleteRoute(Route route);
 
 }

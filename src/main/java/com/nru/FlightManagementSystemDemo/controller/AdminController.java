@@ -1,7 +1,6 @@
 package com.nru.FlightManagementSystemDemo.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -14,20 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.FlightManagementSystemDemo.exception.AirportException;
 import com.FlightManagementSystemDemo.exception.FlightException;
-import com.FlightManagementSystemDemo.exception.RouteException;
 import com.nru.FlightManagementSystemDemo.bean.Airport;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
 import com.nru.FlightManagementSystemDemo.bean.Passenger;
-import com.nru.FlightManagementSystemDemo.bean.Route;
 import com.nru.FlightManagementSystemDemo.dao.AirportDao;
 import com.nru.FlightManagementSystemDemo.dao.FlightDao;
 import com.nru.FlightManagementSystemDemo.dao.PassengerDao;
 import com.nru.FlightManagementSystemDemo.dao.RouteDao;
 import com.nru.FlightManagementSystemDemo.service.FlightService;
-import com.nru.FlightManagementSystemDemo.service.RouteService;
 
 @ControllerAdvice
 @RestController
@@ -37,15 +32,12 @@ public class AdminController {
 
 	@Autowired
 	private AirportDao airportDao;
-	
+
 	@Autowired
 	private PassengerDao passengerDao;
 
 	@Autowired
 	private RouteDao routeDao;
-
-	@Autowired
-	private RouteService routeService;
 
 	@Autowired
 	private FlightService flightService;
@@ -83,17 +75,17 @@ public class AdminController {
 			String stg = airport.getAirportLocation().toUpperCase();
 			airport.setAirportLocation(stg);
 
-			if (airport.getAirportCode().length() != 2) {
-				throw new AirportException("Airport code must be 2 characters long.");
+			if (airport.getAirportCode().length() != 3) {
+				throw new AirportException("Airport code must be 3 characters long.");
 			}
 
-			if (airport.getAirportLocation().length() <= 2) {
-				throw new AirportException("Airport location must be at least 2 characters long.");
+			if (airport.getAirportLocation().length() <= 3) {
+				throw new AirportException("Airport City must be at least 3 characters long.");
 			}
 			airportDao.addAirport(airport);
 			return new ModelAndView("redirect:/Admin/");
 		} catch (Exception e) {
-			throw new AirportException("Error saving airport: " + e.getMessage());
+			throw new AirportException( e.getMessage());
 		}
 	}
 
@@ -123,7 +115,7 @@ public class AdminController {
 			throw new AirportException("Error displaying airport report page: " + e.getMessage());
 		}
 	}
-	
+
 	@GetMapping("/UpdateAirport/{id}")
 	public ModelAndView showUpdateAirportPage(@PathVariable("id") String id) {
 		try {
@@ -148,12 +140,12 @@ public class AdminController {
 			String stg = airport.getAirportLocation().toUpperCase();
 			airport.setAirportLocation(stg);
 
-			if (airport.getAirportCode().length() != 2) {
-				throw new AirportException("Airport code must be 2 characters long.");
+			if (airport.getAirportCode().length() != 3) {
+				throw new AirportException("Airport code must be 3 characters long.");
 			}
 
-			if (airport.getAirportLocation().length() <= 2) {
-				throw new AirportException("Airport location must be at least 2 characters long.");
+			if (airport.getAirportLocation().length() <= 3) {
+				throw new AirportException("Airport location must be at least 3 characters long.");
 			}
 
 			airportDao.updateAirport(airport);
@@ -162,7 +154,7 @@ public class AdminController {
 			throw new AirportException("Error updating airport: " + e.getMessage());
 		}
 	}
-	
+
 	@GetMapping("/DeleteAirport/{id}")
 	public ModelAndView showDeleteAirportPage(@PathVariable("id") String id) {
 		try {
@@ -196,46 +188,9 @@ public class AdminController {
 
 	@ExceptionHandler(value = AirportException.class)
 	public ModelAndView handlingRouteException(AirportException exception) {
-		String message = "Airport Exception: " + exception.getMessage();
+		String message = exception.getMessage();
 		ModelAndView mv = new ModelAndView("airportErrorPage");
 		mv.addObject("errorMessage", message);
-		return mv;
-	}
-
-	@GetMapping("/routeEntryPage")
-	public ModelAndView showRouteEntryPage() {
-		Long newRouteId = routeDao.generateRouteId();
-		Route route = new Route();
-		route.setRouteId(newRouteId);
-		ModelAndView mv = new ModelAndView("routeEntryPage");
-		mv.addObject("routeRecord", route);
-		return mv;
-	}
-
-	@PostMapping("/route")
-	public ModelAndView saveRoutes(@ModelAttribute("routeRecord") Route route1) {
-		String source = route1.getSourceAirportCode().toUpperCase();
-		String destination = route1.getDestinationAirportCode().toUpperCase();
-		if (source.equalsIgnoreCase(destination))
-			throw new RouteException("From-City & To-City cannot be the same......");
-		route1.setSourceAirportCode(source);
-		route1.setDestinationAirportCode(destination);
-		String sourceCode = airportDao.findAirportCodeByLocation(route1.getSourceAirportCode());
-		String destinationCode = airportDao.findAirportCodeByLocation(route1.getDestinationAirportCode());
-		route1.setSourceAirportCode(sourceCode);
-		route1.setDestinationAirportCode(destinationCode);
-		Route route2 = routeService.createReturnRoute(route1);
-		routeDao.save(route1);
-		routeDao.save(route2);
-		return new ModelAndView("index");
-
-	}
-
-	@GetMapping("/routes")
-	public ModelAndView showAirportSelectPage() {
-		List<Route> routeList = routeDao.findAllRoutes();
-		ModelAndView mv = new ModelAndView("routeReportPage");
-		mv.addObject("routeList", routeList);
 		return mv;
 	}
 
@@ -265,6 +220,13 @@ public class AdminController {
 		mv.addObject("flightList", flightList);
 		return mv;
 	}
+	 @ExceptionHandler(value = FlightException.class)
+	    public ModelAndView handlingFlightException(FlightException exception) {
+	        ModelAndView mv = new ModelAndView("flightErrorPage");
+	        mv.addObject("errorMessage", exception.getMessage());
+	        return mv;
+	    }
+
 	@GetMapping("/Passengers")
 	public ModelAndView showPassengerReportPage() {
 		List<Passenger> PassengerList = passengerDao.findAllPassengers();
@@ -272,13 +234,5 @@ public class AdminController {
 		mv.addObject("PassengerList", PassengerList);
 		return mv;
 	}
-	
 
-	@ExceptionHandler(value = FlightException.class)
-	public ModelAndView handlingFlightException(FlightException exception) {
-		String message = "From-City & To-City cannot be the same......";
-		ModelAndView mv = new ModelAndView("flightErrorPage");
-		mv.addObject("flightError", message);
-		return mv;
-	}
 }

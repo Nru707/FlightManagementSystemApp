@@ -11,16 +11,21 @@
 
 </head>
 <body>
-<%@include file="Base3.jsp" %>
+<%@include file="Base2.jsp" %>
 <br><br>
 
-<div align="center">
+ <div class="container">
+            <div class="login-box text-center">
 	<h1 style="color:red"> ALERT!</h1>
 	
 <p>${errorMessage}</p>
 
- <a href="${pageContext.request.contextPath}/customer/flight-search" class="btn btn-primary">CLICK HERE TO RE-ENTER</a>
+ <a href="${pageContext.request.contextPath}/Admin/routeEntryPage" class="btn btn-primary">CLICK HERE TO RE-ENTER</a>
 </div>
+</div>
+    <footer>
+        Flight Management System @2024 Infosys Springboard
+    </footer>
 
 </body>
 </html>

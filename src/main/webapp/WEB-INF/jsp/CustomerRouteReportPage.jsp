@@ -15,35 +15,39 @@
 <header>
  <%@include file="Base3.jsp" %>
  </header>
-<div class=" text-center">
-	<h3 class="font-weight-bold text-dark">ROUTE LIST</h3>
-	<table class="table table-striped table-bordered ">
-  <thead class="thead-dark">
-    <tr>
-    <th>ROUTE ID</th>
-    <th>SOURCE CODE</th>
-	<th>DESTINATION CODE</th>
-	<th>ROUTE FARE</th>
-    </tr>
-  </thead>
-  <tbody>
-  <c:forEach items="${routeList }" var="route">
-    <tr>
-    <td><c:out value="${route.routeId}" /></td>
-    <td><c:out value="${route.sourceAirportCode}" /></td>
-	<td><c:out value="${route.destinationAirportCode}" /></td>
-	<td><c:out value="${route.fare}" /></td>
-    </tr>
-    </c:forEach>
-  
-  </tbody>
-  
-</table>
-	<br>
-	<a class="btn btn-primary" href="${pageContext.request.contextPath}/customer/" role="button">RETURN TO HOME</a>
-</div>
+	<div class=" text-center">
+		<div class="routeshow-box">
+			<h3 class=" text-center font-weight-bold text-dark">ROUTE REPORT</h3>
+			<table class="table table-striped table-bordered ">
+				<thead class="thead-dark">
+					<tr>
+						<th>ROUTE ID</th>
+						<th>SOURCE CODE</th>
+						<th>DESTINATION CODE</th>
+						<th>ROUTE FARE</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${routeList }" var="route">
+						<tr>
+							<td><c:out value="${route.routeId}" /></td>
+							<td><c:out value="${route.sourceAirportCode}" /></td>
+							<td><c:out value="${route.destinationAirportCode}" /></td>
+							<td><c:out value="${route.fare}" /></td>
+						</tr>
+					</c:forEach>
 
- <footer>
+				</tbody>
+			</table>
+	 <a class="btn btn-primary" href="${pageContext.request.contextPath}/customer/" role="button">RETURN TO HOME</a>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<footer>
         Flight Management System @2024 Infosys Springboard
     </footer>
 

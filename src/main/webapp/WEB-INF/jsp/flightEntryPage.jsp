@@ -10,8 +10,7 @@
 </head>
 <body>
 <%@include file="Base2.jsp" %>
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 form-container">
+        <div class="flightEntry-box">
                             <h3 class="text-center form-title">Flight Form</h3>
                             <form:form action="${pageContext.request.contextPath}/Admin/flight" method="post" modelAttribute="flightRecord">
                                 <div class="form-group">
@@ -35,7 +34,7 @@
                                     <label for="seatCapacity">Enter Seat Capacity:</label>
                                     <form:input path="seatCapacity" class="form-control" id="seatCapacity" />
                                 </div>
-                                <!-- The departure and arrival fields map to the Flight object and are handled by @ModelAttribute -->
+                               
                                 <div class="form-group">
                                     <label for="departure">Enter Departure Time:</label>
                                     <form:input path="departure" class="form-control" id="departure" />
@@ -45,7 +44,7 @@
                                     <form:input path="arrival" class="form-control" id="arrival" />
                                  </div>
                                 <form:hidden path="seatBooked" value="0" />
-                                <!-- dtime and atime are not part of the Flight object and are handled separately by @RequestParam -->
+                             
                                 <div class="form-group">
                                     <label for="dtime">Enter Return Flight Departure Time:</label>
                                     <input type="text" name="dtime" class="form-control" id="dtime" />
@@ -60,9 +59,12 @@
                                     <a href="${pageContext.request.contextPath}/Admin/" class="btn btn-secondary btn-custom">Back</a>
                                 </div>
                             </form:form>
-                        
-                        </div>
-                    </div>
+                            </div>
+                     <br>
+	<br>
+	<br>
+	<br>
+	<footer> Flight Management System @2024 Infosys Springboard </footer>
                     
 
 </body>

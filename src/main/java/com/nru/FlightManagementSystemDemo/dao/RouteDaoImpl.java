@@ -50,4 +50,10 @@ public class RouteDaoImpl implements RouteDao {
 		
 		return repository.findAllRoutesId();
 	}
+
+	@Override
+	public void deleteRoute(Route route) {
+		repository.delete(route);
+		
+	}
 }

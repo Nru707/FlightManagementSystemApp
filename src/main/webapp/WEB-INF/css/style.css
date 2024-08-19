@@ -1,5 +1,4 @@
 @charset "ISO-8859-1";
-
 .fixed-top {
 	position: fixed;
 	top: 0;
@@ -7,10 +6,6 @@
 	width: 100%;
 	z-index: 1030; /* Bootstrap default z-index for fixed navbar */
 }
-
-/*.bg-primary {
-	background: #616161 !important;
-}*/
 
 .banner {
 	width: 100%;
@@ -50,6 +45,20 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+border-radius: 0px;
+background: #e0e0e0;
+box-shadow:  30px 30px 38px #606060,
+             -30px -30px 38px #ffffff;
+}
+.report-box, .passenger-box, .reportshow-box, .routeshow-box, .flightEntry-box, .flightbook-box{
+	width: 1300px;
+	padding: 20px;
+  margin-top: 30px;
+  margin-left: 100px;
+border-radius: 0px;
+background: #e0e0e0;
+box-shadow:  30px 30px 38px #606060,
+             -30px -30px 38px #ffffff;
 }
 
 .signup-box h2, .login-box h2 {
@@ -70,7 +79,7 @@ body {
 
 .signup-box input[type="text"], .signup-box input[type="password"],
 	.signup-box input[type="email"], .login-box input[type="username"],
-	.login-box input[type="email"], .login-box input[type="password"],
+	.login-box input[type="email"], .login-box input[type="password"], .flightbook-box input,
 	.signup-box select {
 	width: calc(100% - 2px);
 	padding: 10px;
@@ -78,13 +87,7 @@ body {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	box-sizing: border-box;
-	/* Ensures padding is included in the total width */
 }
-/*.signup-box input[type="text"]:invalid,
-        .signup-box input[type="password"]:invalid,
-        .signup-box input[type="email"]:invalid {
-            
-        }*/
 .show-password {
 	display: flex;
 	align-items: center;
@@ -123,7 +126,7 @@ body {
 footer {
 	text-align: center;
 	padding: 10px;
-	background-color: #f1f1f1;
+	background-color: #0080ff;
 	width: 100%;
 	position: fixed;
 	bottom: 0;

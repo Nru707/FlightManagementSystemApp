@@ -10,25 +10,25 @@
 </head>
 <body>
 <%@include file="Base3.jsp" %>
-<br>
-<div class=" text-center">
-	<h3 class="font-weight-bold text-dark">AIRPORT DETAILS</h3>
-	<table class="table table-striped table-bordered ">
-  <thead class="thead-dark">
-    <tr>
-    <th>AIRPORT CODE</th>
-	<th>AIRPORT LOCATION</th>
-    </tr>
-  </thead>
-   <tbody>
-    <tr>
-    <td><c:out value="${airport.airportCode}" /></td>
-	<td><c:out value="${airport.airportLocation}" /></td>
-    </tr>
-  </tbody>
-  </table>
-  <br>
+<div class="text-center">
+		<div class="reportshow-box">
+			<h3 class=" text-center font-weight-bold text-dark">AIRPORT DETAILS</h3>
+			<table class="table table-striped table-bordered ">
+				<thead class="thead-dark">
+					<tr>
+						<th>AIRPORT CODE</th>
+						<th>AIRPORT LOCATION</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><c:out value="${airport.airportCode}" /></td>
+						<td><c:out value="${airport.airportLocation}" /></td>
+					</tr>
+				</tbody>
+			</table>
 	<a class="btn btn-primary" href="${pageContext.request.contextPath}/customer/" role="button">RETURN TO HOME</a>
+</div>
 </div>
 
  <footer>

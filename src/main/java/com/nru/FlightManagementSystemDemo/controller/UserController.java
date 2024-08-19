@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.FlightManagementSystemDemo.exception.AirportException;
+import com.FlightManagementSystemDemo.exception.FlightException;
 import com.FlightManagementSystemDemo.exception.RouteException;
 import com.nru.FlightManagementSystemDemo.bean.Airport;
 import com.nru.FlightManagementSystemDemo.bean.Flight;
@@ -111,15 +112,22 @@ public class UserController {
 	}
 
 	@PostMapping("/flight-search")
-	public ModelAndView showRouteFlightsPage(@RequestParam("fromCity") String fromCity,
-			@RequestParam("toCity") String toCity) {
-		fromCity = fromCity.toUpperCase();
+	public ModelAndView showRouteFlightsPage(@RequestParam("fromCity") String fromCity,@RequestParam("toCity") String toCity) {
+		try{
+			fromCity = fromCity.toUpperCase();
 		toCity = toCity.toUpperCase();
 		String fromAirport = airportDao.findAirportCodeByLocation(fromCity);
 		String toAirport = airportDao.findAirportCodeByLocation(toCity);
-		if (fromAirport.equalsIgnoreCase(toAirport))
-			throw new RouteException(toAirport);
+		if (fromAirport == null || toAirport == null) {
+	        throw new FlightException("One or both of the cities are invalid.");
+	    }
+		if (fromAirport.equalsIgnoreCase(toAirport)) {
+			throw new  FlightException( "The source and destination airports cannot be the same.");
+	    }
 		Route route = routeDao.findRouteBySourceAndDestination(fromAirport, toAirport);
+		 if (route == null) {
+			 throw new  FlightException("No route found between the selected airports.");
+		    }
 
 		List<Flight> flightList = flightDao.findFlightsByRouteId(route.getRouteId());
 
@@ -129,8 +137,16 @@ public class UserController {
 		mv.addObject("toAirport", toCity);
 		mv.addObject("fare", route.getFare());
 		return mv;
-
+	} catch (Exception e) {
+		throw new FlightException( e.getMessage());
 	}
+}
+	 @ExceptionHandler(value = FlightException.class)
+	    public ModelAndView handlingFlightException(FlightException exception) {
+	        ModelAndView mv = new ModelAndView("SearchflightErrorPage");
+	        mv.addObject("errorMessage", exception.getMessage());
+	        return mv;
+	    }
 
 	@GetMapping("/ticket/{id}")
 	public ModelAndView showTicketBookingPage(@PathVariable Long id) {
@@ -158,8 +174,12 @@ public class UserController {
 		String dob = "";
 		for (int i = 1; i <= 6; i++) {
 			pname = request.getParameter("name" + i);
-			if (!pname.equals("--")) {
-				dob = request.getParameter("dob" + i);
+			dob = request.getParameter("dob" + i);
+			System.out.println(pname);
+			System.out.println(dob);
+			System.out.println("name" + i);
+			System.out.println("dob" + i);
+			if (pname != null && !pname.isEmpty() && !pname.equals("--") && dob != null && !dob.isEmpty()) {
 				TicketPassengerEmbed embed = new TicketPassengerEmbed(ticket.getTicketNumber(), i);
 				Passenger passenger = new Passenger(embed, pname, dob, fare);
 				Double pfare = ticketService.discountedFareCalculation(passenger);
@@ -189,22 +209,6 @@ public class UserController {
 		mv.addObject("toCity", toCity);
 		mv.addObject("passengerList", passengerList);
 		return mv;
-	}
-
-	/*
-	 * @GetMapping("/CustomerTickets") public ModelAndView showCustomerTicketsPage()
-	 * { List<Ticket> ticketList = TicketDao.findAllTickets(); ModelAndView mv = new
-	 * ModelAndView("MyTicketPage"); mv.addObject("routeList", routeList); return
-	 * mv; }
-	 */
-
-	@ExceptionHandler(value = RouteException.class)
-	public ModelAndView handlingRouteException(RouteException exception) {
-		String message = "From-City & To-City cannot be the same......";
-		ModelAndView mv = new ModelAndView("routeErrorPage");
-		mv.addObject("errorMessage", message);
-		return mv;
-
 	}
 
 }

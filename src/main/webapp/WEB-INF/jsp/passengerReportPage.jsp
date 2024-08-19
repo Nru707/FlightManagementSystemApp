@@ -10,8 +10,9 @@
 </head>
 <body>
 	<%@include file="Base2.jsp"%>
-	<div class=" text-center">
-		<h3 class="font-weight-bold text-dark">AIRPORT DETAILS</h3>
+	<div class="text-center">
+		<div class="passenger-box">
+		<h3 class="font-weight-bold text-dark">PASSENGER DETAILS</h3>
 		<table class="table table-striped table-bordered ">
 			<thead class="thead-dark">
 				<tr>
@@ -32,11 +33,16 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<br>
 		<div class="text-center">
 			<a href="${pageContext.request.contextPath}/Admin/" class="btn btn-primary">Back Home</a>
 		</div>
 
 	</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<footer> Flight Management System @2024 Infosys Springboard </footer>
 </body>
 </html>

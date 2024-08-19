@@ -13,21 +13,23 @@
    <body>
    
    <%@include file="Base2.jsp" %>
-   <div style="text-align: center;">
-   <br><br>
-   <h3 >
-   
+    <div class="container">
+        <div class="login-box">
+           <h3 class="text-center">Delete Airport Form</h3>
+           <br>
    <form:form action="${pageContext.request.contextPath}/Admin/DeleteAirport" method="post" modelAttribute="airport">
     <input type="hidden" name="airportId" value="${airport.airportCode}" />
-   ENTER AIRPORT CITY: <form:input  path="airportLocation" required="required"/>
-   <br><br>
-   ENTER AIRPORT CODE: <form:input  path="airportCode" required="required"/>
-   <br><br>
+   <div class="form-group">
+           <label>ENTER AIRPORT CITY: </label><form:input  path="airportLocation" class="form-control" required="required"/>
+   			</div>
+   		   <div class="form-group">
+  		 	<label>ENTER AIRPORT CODE:</label> <form:input  path="airportCode"  class="form-control" required="required"/>
+  			 </div>
     <button type="submit" class="btn btn-primary">DELETE AIRPORT</button>
   <a href="/admin/" type="submit" class="btn btn-primary">BACK HOME</a>
 
 </form:form>
-</h3>
+</div>
 </div>
  <footer>
         Flight Management System @2024 Infosys Springboard

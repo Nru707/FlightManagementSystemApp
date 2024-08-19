@@ -10,43 +10,47 @@
 </head>
 <body>
  <%@include file="Base3.jsp" %>
- <br>
-                <div class="row justify-content-center">
-                    <div class="col-md-8 details-container text-center">
-                        <h1 class="details-title"><i>FLIGHT DETAILS</i></h1>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Flight Number</th>
-                                    <th>Airlines Name</th>
-                                    <th>Route Id</th>
-                                    <th>Departure</th>
-                                    <th>Arrival</th>
-                                    <th>Seat Available</th>
-                                    <th>Fare</th>
-                                    <th>Booking</th>
-                                </tr>
-                            </thead>
-                            <tbody>
 
-                                <c:forEach var="flight" items="${flightList}">
-                                    <tr>
-                                        <td>${flight.flightNumber}</td>
-                                        <td>${flight.carrierName}</td>
-                                        <td>${flight.routeId}</td>
-                                        <td>${flight.departure}</td>
-                                        <td>${flight.arrival}</td>
-                                        <c:set var="seatAvailable" scope="session"
-                                            value="${flight.seatCapacity-flight.seatBooked}" />
-                                        <td>${seatAvailable}</td>
-                                        <td>${fare}</td>
-                                      <td><a href="${pageContext.request.contextPath}/customer/ticket/${flight.flightNumber}" class="home-link btn btn-primary" >Book Ticket</a></td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                        <a href="${pageContext.request.contextPath}/customer/" class="home-link btn btn-primary">Back to Home</a>
-                    </div>
-                </div>
+	<div class=" text-center">
+		<div class="report-box">
+			<h3 class=" text-center font-weight-bold text-dark">FLIGHT DETAILS</h3>
+			<table class="table table-striped table-bordered ">
+				<thead class="thead-dark">
+					<tr>
+						<th>Flight Number</th>
+						<th>Airlines Name</th>
+						<th>Route Id</th>
+						<th>Departure</th>
+						<th>Arrival</th>
+						<th>Seat Available</th>
+						<th>Fare</th>
+						<th>Booking</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<c:forEach var="flight" items="${flightList}">
+						<tr>
+							<td>${flight.flightNumber}</td>
+							<td>${flight.carrierName}</td>
+							<td>${flight.routeId}</td>
+							<td>${flight.departure}</td>
+							<td>${flight.arrival}</td>
+							<c:set var="seatAvailable" scope="session"
+								value="${flight.seatCapacity-flight.seatBooked}" />
+							<td>${seatAvailable}</td>
+							<td>${fare}</td>
+							<td><a
+								href="${pageContext.request.contextPath}/customer/ticket/${flight.flightNumber}" class="home-link btn btn-primary">Book Ticket</a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<a href="${pageContext.request.contextPath}/customer/" class="home-link btn btn-primary">Back to Home</a>
+		</div>
+	</div>
+	<footer>
+        Flight Management System @2024 Infosys Springboard
+    </footer>
 </body>
 </html>
