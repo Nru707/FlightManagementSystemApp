@@ -36,30 +36,29 @@ body {
 }
 
 .signup-box, .login-box {
-	width: 520px;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	background-color: #fff;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-border-radius: 0px;
-background: #e0e0e0;
-box-shadow:  30px 30px 38px #606060,
-             -30px -30px 38px #ffffff;
+    width: 520px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px; /* Apply only if needed */
+    background-color: #e0e0e0;
+    position: fixed; /* Stays centered even on scroll */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow:  30px 30px 38px #606060,
+                 -30px -30px 38px #ffffff;
 }
+
 .report-box, .passenger-box, .reportshow-box, .routeshow-box, .flightEntry-box, .flightbook-box{
-	width: 1300px;
-	padding: 20px;
-  margin-top: 30px;
-  margin-left: 100px;
-border-radius: 0px;
-background: #e0e0e0;
-box-shadow:  30px 30px 38px #606060,
-             -30px -30px 38px #ffffff;
+  width: 1300px;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow:  30px 30px 38px #606060,
+               -30px -30px 38px #ffffff;
 }
+
 
 .signup-box h2, .login-box h2 {
 	margin-bottom: 20px;
@@ -85,7 +84,7 @@ box-shadow:  30px 30px 38px #606060,
 	padding: 10px;
 	margin-bottom: 10px;
 	border: 1px solid #ccc;
-	border-radius: 5px;
+	border-radius: 10px;
 	box-sizing: border-box;
 }
 .show-password {

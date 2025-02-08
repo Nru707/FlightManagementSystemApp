@@ -18,12 +18,14 @@
            <h3 class="text-center">Update Airport Form</h3>
            <br>
            <form:form action="${pageContext.request.contextPath}/Admin/UpdateAirport" method="post" modelAttribute="airport">
-            <div class="form-group">
-           <label>ENTER AIRPORT CITY: </label><form:input  path="sourceAirportCode" class="form-control"  value="${destinationAirport.airportLocation}" required="required"/>
+             <input type="hidden" name="airportId" value="${airport.airportCode}" />
+   <div class="form-group">
+           <label>ENTER AIRPORT CITY: </label><form:input  path="airportLocation" class="form-control" required="required"/>
    			</div>
    		   <div class="form-group">
-  		 	<label>ENTER AIRPORT CODE:</label> <form:input  path="destinationAirportCode"  class="form-control" required="required"/>
+  		 	<label>ENTER AIRPORT CODE:</label> <form:input  path="airportCode"  class="form-control" required="required"/>
   			 </div>
+
     <button type="submit" class="btn btn-primary">SAVE CHANGES</button>
   <a href="${pageContext.request.contextPath}/Admin/" type="submit" class="btn btn-primary">BACK HOME</a>
 

@@ -9,16 +9,16 @@
 <%@include file="/WEB-INF/css/style.css" %>
 </style>
 </head>
+
 <body>
-<body>
-<%@include file="Base2.jsp" %>
+<%@include file="Base3.jsp" %>
 <br><br>
 
  <div class="container">
             <div class="login-box text-center">
 	<h1 style="color:red"> ALERT!</h1>
 	
-<p>${errorMessage}</p>
+<p>${errorMessage}</p>	
 
  <a href="${pageContext.request.contextPath}/customer/flight-search" class="btn btn-primary">CLICK HERE TO RE-ENTER</a>
 </div>

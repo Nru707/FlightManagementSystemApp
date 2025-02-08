@@ -36,9 +36,9 @@
 						href="${pageContext.request.contextPath}/">Home</a></li>
 					<li class="nav-item active"><a class="nav-link"
 						href="${pageContext.request.contextPath}/Login">Login</a></li>
-					<li class="nav-item active"><a class="nav-link "
+		<!--		<li class="nav-item active"><a class="nav-link "
 						href="${pageContext.request.contextPath}/newUser" tabindex="-1"
-						aria-disabled="true">SignUp</a></li>
+						aria-disabled="true">SignUp</a></li> -->	
 				</ul>
 
 			</div>
